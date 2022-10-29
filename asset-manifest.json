@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/catalog-product/static/css/main.e6c13ad2.css",
-    "main.js": "/catalog-product/static/js/main.a1c67b5b.js",
-    "static/js/787.a6db3831.chunk.js": "/catalog-product/static/js/787.a6db3831.chunk.js",
-    "index.html": "/catalog-product/index.html",
-    "main.e6c13ad2.css.map": "/catalog-product/static/css/main.e6c13ad2.css.map",
-    "main.a1c67b5b.js.map": "/catalog-product/static/js/main.a1c67b5b.js.map",
-    "787.a6db3831.chunk.js.map": "/catalog-product/static/js/787.a6db3831.chunk.js.map"
+    "main.css": "/product_catalog/frontend/catalog-product/static/css/main.e6c13ad2.css",
+    "main.js": "/product_catalog/frontend/catalog-product/static/js/main.f160d1ec.js",
+    "static/js/787.a6db3831.chunk.js": "/product_catalog/frontend/catalog-product/static/js/787.a6db3831.chunk.js",
+    "index.html": "/product_catalog/frontend/catalog-product/index.html",
+    "main.e6c13ad2.css.map": "/product_catalog/frontend/catalog-product/static/css/main.e6c13ad2.css.map",
+    "main.f160d1ec.js.map": "/product_catalog/frontend/catalog-product/static/js/main.f160d1ec.js.map",
+    "787.a6db3831.chunk.js.map": "/product_catalog/frontend/catalog-product/static/js/787.a6db3831.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.a1c67b5b.js"
+    "static/js/main.f160d1ec.js"
   ]
 }
