@@ -1,9 +1,23 @@
+/* eslint-disable space-before-function-paren */
+'use strict';
 
-const express = require('express');
-const app = express();
+function createServer() {
+  const express = require('express');
+  const cors = require('cors');
+  const products = require('../api/phones.json');
 
-app.get('/', function (req, res) {
-  res.send('Hello World');
-});
+  const PORT = process.env.PORT || 3000;
 
-app.listen(3000);
+  const app = express();
+
+  app.use(cors());
+
+  app.get('/products', express.json(), function (req, res) {
+    res.statusCode = 200;
+    res.send(products);
+  });
+
+  app.listen(PORT);
+}
+
+createServer();
