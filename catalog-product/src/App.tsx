@@ -1,7 +1,8 @@
 import './App.css';
+import { Footer } from './Components/HomePage/Footer';
 
 export function App() {
   return (
-    <h1>Hello Mate!</h1>
+    <Footer />
   );
 }
