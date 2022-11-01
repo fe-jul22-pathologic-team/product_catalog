@@ -3,12 +3,17 @@ import { Card } from "../types/Card";
 import phones from '../../../api/phones.json';
 import './CardItem.css';
 
-export const CardList = () => {
+type Props = {
+  from: number;
+  to: number;
+};
+
+export const CardList: React.FC<Props> = (from, to) => {
   const [phonesFromServer, setPhonesFromServer] = useState<Card[]>([]);
 
   useEffect(() => {
     setPhonesFromServer(phones);
-  });
+  }, []);
 
   return (
     <>
