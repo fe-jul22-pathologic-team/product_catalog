@@ -3,6 +3,7 @@ import { Menu } from './Menu';
 import { Logo } from './Logo';
 import { Shop } from './Shop';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 
 export const Header: React.FC = () => {
@@ -17,24 +18,24 @@ export const Header: React.FC = () => {
       <nav className="header__nav nav">
         <ul className="nav__list">
           <li className="nav__item">
-            <a href="#home" className="nav__link is-active">
+            <Link to="/home" className="nav__link is-active">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav__item">
-            <a href="#phones" className="nav__link">
+            <Link to="/phones" className="nav__link">
               Phones
-            </a>
+            </Link>
           </li>
           <li className="nav__item">
-            <a href="#tablets" className="nav__link">
+            <Link to="/tablets" className="nav__link">
               Tablets
-            </a>
+            </Link>
           </li>
           <li className="nav__item">
-            <a href="#accessories" className="nav__link">
+            <Link to="/accessories" className="nav__link">
               Accessories
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
@@ -42,19 +43,19 @@ export const Header: React.FC = () => {
       <div className="icons header__icons">
         <ul className="icons__list">
           <li className='icons__item icons__item--menu'>
-            <a href="#menu" className="icons__link">
+            <Link to="/menu" className="icons__link">
               <Menu />
-            </a>
+            </Link>
           </li>
           <li className='icons__item icons__item--favorites'>
-            <a href="#favorites" className="icons__link">
+            <Link to="/favorites" className="icons__link">
               <Favorites />
-            </a>
+            </Link>
           </li>
           <li className='icons__item icons__item--shop'>
-            <a href="#shop" className="icons__link">
+            <Link to="/shop" className="icons__link">
               <Shop />
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
