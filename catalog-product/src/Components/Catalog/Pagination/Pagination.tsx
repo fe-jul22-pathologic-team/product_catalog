@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+
 import { getNumbers } from '../helpers/getNumbers';
 import './Pagination.css';
 

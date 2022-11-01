@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Catalog } from './Components/Catalog';
 import { HomePage } from './Components/HomePage/HomePage';
@@ -10,6 +10,7 @@ export function App() {
           path="/" 
           element={<HomePage />}
         />
+        <Route path="home" element={<Navigate to="/" replace />} />
         <Route 
           path="/phones" 
           element={<Catalog />}
