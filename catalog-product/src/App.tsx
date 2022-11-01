@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Catalog } from './Components/Catalog';
 import { HomePage } from './Components/HomePage/HomePage';
 
 export function App() {
@@ -12,7 +13,7 @@ export function App() {
 
         <Route 
           path="/phones" 
-          element={<h1>Phone page</h1>}
+          element={<Catalog />}
         />
 
         <Route 

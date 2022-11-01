@@ -1,0 +1,145 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 24px;
+  margin-left: 16px;
+}
+
+.navigation__previous {
+  width: 16px;
+  height: 16px;
+}
+
+.navigation__nesting {
+  color: #B4BDC4;
+}
+
+.navigation__current {
+  font-family: 'Mont';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #89939A;
+}
+
+.catalog__title {
+  font-family: 'Mont';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+
+  color: #313237;
+
+  margin: 0;
+
+  margin-left: 16px;
+}
+
+.catalog__amount {
+  font-family: 'Mont';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #89939A;
+
+  margin: 0;
+  padding: 0;
+
+  margin-left: 16px;
+}
+
+.catalog__sorter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.catalog__sort-by {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-left: 16px;
+}
+
+.sort-by {
+  font-family: 'Mont';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #89939A;
+}
+
+.sort-by__list {
+  width: 187px;
+  height: 40px;
+
+  border: 1px solid #B4BDC4;
+}
+
+.catalog__items-on-page {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-right: 16px;
+}
+
+.catalog__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (min-width: 1200px) {
+  .catalog__sorter {
+    justify-content: flex-start;
+  }
+
+  .catalog__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    margin: 0;
+
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  .catalog__sort-by {
+    margin-left: 150px;
+  }
+
+  .navigation {
+    margin-left: 150px;
+  }
+
+  .catalog__title {
+    font-size: 48px;
+    line-height: 56px;
+
+    margin-left: 150px;
+  }
+
+  .catalog__amount {
+    margin-left: 150px;
+  }
+}
