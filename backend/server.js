@@ -12,6 +12,8 @@ function createServer() {
 
   app.use(cors());
 
+  console.log(`server is running in port: ${PORT}`);
+
   app.get('/products', express.json(), function (req, res) {
     res.statusCode = 200;
     res.send(products);
