@@ -1,8 +1,8 @@
 import './App.css';
-import { Footer } from './Components/HomePage/Footer';
+import { HomePage } from './Components/HomePage/HomePage';
 
 export function App() {
   return (
-    <Footer />
+    <HomePage />
   );
 }
