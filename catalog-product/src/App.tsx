@@ -10,7 +10,7 @@ export function App() {
           path="/" 
           element={<HomePage />}
         />
-        <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
         <Route 
           path="/phones" 
           element={<Catalog />}
