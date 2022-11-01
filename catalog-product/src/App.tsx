@@ -4,7 +4,6 @@ import { HomePage } from './Components/HomePage/HomePage';
 
 export function App() {
   return (
-    <>
       <Routes>
         <Route 
           path="/" 
@@ -21,6 +20,5 @@ export function App() {
           element={<p>Page not found</p>}
         />
       </Routes>
-    </>
   );
 }
