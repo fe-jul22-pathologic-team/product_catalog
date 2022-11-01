@@ -1,11 +1,24 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Header } from './Components/HomePage/Header';
+import { HomePage } from './Components/HomePage/HomePage';
 
 export function App() {
   return (
-    <>
-      <h1>Hello Mate!</h1>
-      <Header />
-    </>
+      <Routes>
+        <Route 
+          path="/" 
+          element={<HomePage />}
+        />
+
+        <Route 
+          path="/phones" 
+          element={<h1>Phone page</h1>}
+        />
+
+        <Route 
+          path="*" 
+          element={<p>Page not found</p>}
+        />
+      </Routes>
   );
 }
