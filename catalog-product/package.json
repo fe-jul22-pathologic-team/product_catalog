@@ -1,6 +1,6 @@
 {
   "name": "catalog-product",
-  "homepage": "https://fe-jul22-pathologic-team.github.io/catalog-product",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
