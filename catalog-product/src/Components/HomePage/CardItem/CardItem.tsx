@@ -50,7 +50,12 @@ export const CardItem = () => {
         </div>
 
         <div className="buttons">
-          <div className="buttons__buy">Add to cart</div>
+          <button
+            className="buttons__buy"
+            onClick={() => console.log('Test')}
+            >
+              Add to cart
+          </button>
           <div className="buttons__favorite">
           </div>
         </div>
