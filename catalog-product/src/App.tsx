@@ -1,10 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Catalog } from './Components/Catalog';
+import { Footer } from './Components/HomePage/Footer';
+import { Header } from './Components/HomePage/Header';
 import { HomePage } from './Components/HomePage/HomePage';
 
 export function App() {
   return (
+    <>
       <Routes>
         <Route 
           path="/" 
@@ -17,16 +20,33 @@ export function App() {
         />
         <Route 
           path="/tablets" 
-          element={<h1>Tablets page</h1>}
+          element={
+          <>
+            <Header />
+            <h1>Tablets page</h1>
+            <Footer />
+          </>
+        }
         />
         <Route 
           path="/accessories" 
-          element={<h1>Accessories page</h1>}
+          element={
+          <>
+            <Header />
+            <h1>Accessories page</h1>
+            <Footer />
+          </>}
         />
         <Route 
           path="*" 
-          element={<p>Page not found</p>}
+          element={
+          <>
+            <Header />
+            <p>Page not found</p>
+            <Footer />
+          </>}
         />
       </Routes>
+    </>
   );
 }

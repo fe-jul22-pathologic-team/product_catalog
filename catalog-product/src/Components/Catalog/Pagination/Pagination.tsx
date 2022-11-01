@@ -41,7 +41,7 @@ export const Pagination: React.FC<Props> = ({
             disabled: currentPage === 1,
           },
         )}
-        key="prev"
+
       >
         <a
           data-cy="prevLink"
@@ -58,13 +58,13 @@ export const Pagination: React.FC<Props> = ({
         getNumbers(1, totalPages)
           .map(page => (
             <li
+              key={page}
               className={classNames(
                 'page-item',
                 {
                   active: page === currentPage,
                 },
               )}
-              key={page}
             >
               <a
                 data-cy="pageLink"
@@ -85,7 +85,6 @@ export const Pagination: React.FC<Props> = ({
             disabled: currentPage === totalPages,
           },
         )}
-        key="next"
       >
         <a
           data-cy="nextLink"

@@ -1,13 +1,13 @@
 .footer {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: baseline;
 
-  min-height: 50px;
-  width: 95vw;
+  height: fit-content;
 
-  margin-top: 34px;
+  margin-top: auto;
   margin-bottom: 40px;
   margin: 32px;
   bottom: 0;
@@ -42,6 +42,7 @@
 @media (min-width: 640px) {
   .footer {
     margin-bottom: 0;
+    bottom: 0;
   }
 
   .footer, .footer__navigation {
