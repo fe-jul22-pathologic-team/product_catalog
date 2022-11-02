@@ -9,6 +9,7 @@ import { Header } from './Components/HomePage/Header';
 import { HomePage } from './Components/HomePage/HomePage';
 import { Product } from './types/Product';
 
+
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
