@@ -17,15 +17,13 @@ type Props = {
   isLoading: boolean;
 };
 
-const items = getNumbers(1, 42);
-
-
 export const Catalog: React.FC<Props> = ({
   phoneProducts,
   setCartState, 
   cartState,
   isLoading,
 }) => {
+  const items = getNumbers(1, phoneProducts.length);
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
   const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 5));
