@@ -25,8 +25,6 @@ export function App() {
 
   }, []);
 
-  console.log(products);
-  
   return (
     <>
       <Routes>
@@ -37,7 +35,7 @@ export function App() {
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route 
           path="/phones" 
-          element={<Catalog />}
+          element={<Catalog phoneProducts={products} />}
         />
         <Route 
           path="/tablets" 
