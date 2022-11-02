@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Cart } from './Components/Cart';
 import { Catalog } from './Components/Catalog';
 import { Footer } from './Components/HomePage/Footer';
 import { Header } from './Components/HomePage/Header';
@@ -36,6 +37,10 @@ export function App() {
             <h1>Accessories page</h1>
             <Footer />
           </>}
+        />
+        <Route 
+          path='/cart'
+          element={<Cart />}
         />
         <Route 
           path="*" 
