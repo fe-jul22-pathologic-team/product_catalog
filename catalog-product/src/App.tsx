@@ -25,6 +25,8 @@ export function App() {
 
   }, []);
 
+  console.log(products);
+
   return (
     <>
       <Routes>
