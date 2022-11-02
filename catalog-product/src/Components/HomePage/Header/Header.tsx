@@ -53,7 +53,7 @@ export const Header: React.FC = () => {
             </Link>
           </li>
           <li className='icons__item icons__item--shop'>
-            <Link to="/shop" className="icons__link">
+            <Link to="/cart" className="icons__link">
               <Shop />
             </Link>
           </li>

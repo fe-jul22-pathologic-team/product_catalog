@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { CartItem } from './Components/CartItem';
+import { Cart } from './Components/Cart';
 import { Catalog } from './Components/Catalog';
 import { Footer } from './Components/HomePage/Footer';
 import { Header } from './Components/HomePage/Header';
@@ -42,6 +43,10 @@ export function App() {
         <Route
           path='/test'
           element={<CartItem />} 
+        />
+        <Route 
+          path='/cart'
+          element={<Cart />}
         />
         <Route 
           path="*" 

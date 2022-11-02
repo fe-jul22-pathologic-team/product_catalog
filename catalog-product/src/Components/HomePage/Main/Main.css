@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: 60px;
+}
+
+.section:last-child {
+  padding-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    margin-top: 90px;
+    margin-bottom: 90px;
+  }
+
+  .section {
+    padding-bottom: 80px;
+  }
+}
