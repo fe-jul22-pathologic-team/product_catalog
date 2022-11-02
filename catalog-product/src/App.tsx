@@ -1,10 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Cart } from './Components/Cart';
-import { Catalog } from './Components/Catalog';
-import { Footer } from './Components/HomePage/Footer';
-import { Header } from './Components/HomePage/Header';
-import { HomePage } from './Components/HomePage/HomePage';
 
 export function App() {
   return (
