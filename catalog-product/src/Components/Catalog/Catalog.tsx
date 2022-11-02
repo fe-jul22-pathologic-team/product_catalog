@@ -14,12 +14,18 @@ type Props = {
   phoneProducts: Product[];
   cartState: Product[];
   setCartState: React.Dispatch<React.SetStateAction<Product[]>>;
+  isLoading: boolean;
 };
 
 const items = getNumbers(1, 42);
 
 
-export const Catalog: React.FC<Props> = ({ phoneProducts, setCartState, cartState }) => {
+export const Catalog: React.FC<Props> = ({
+  phoneProducts,
+  setCartState, 
+  cartState,
+  isLoading,
+}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
   const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 5));
@@ -119,6 +125,7 @@ export const Catalog: React.FC<Props> = ({ phoneProducts, setCartState, cartStat
       from={from} 
       to={to}
       handleAdd={handleAdd}
+      isLoading={isLoading}
     />
 
     <Pagination

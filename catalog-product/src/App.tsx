@@ -14,6 +14,7 @@ import { Product } from './types/Product';
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [cartState, setCartState] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadData = async () => {
     const data = await getProducts();
@@ -22,7 +23,7 @@ export function App() {
   };
 
   useEffect(() => {
-    loadData();
+    loadData().then(() => setIsLoading(true));
 
   }, []);
 
@@ -40,6 +41,7 @@ export function App() {
               phoneProducts={products}
               cartState={cartState}
               setCartState={setCartState}
+              isLoading={isLoading}
             />}
         />
         <Route 
