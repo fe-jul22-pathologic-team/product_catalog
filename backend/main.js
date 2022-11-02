@@ -1,11 +1,13 @@
 'use strict';
 
-const { createServer } = require('./server.js');
+import { createServer } from './server.js'
+import { getAll } from './services/products.js';
 
 const PORT = process.env.PORT || 3000;
 
 createServer()
   .listen(PORT, () => {
-    // eslint-disable-next-line no-console
     console.log(`Server is running on port: ${PORT}`);
   });
+
+getAll();
