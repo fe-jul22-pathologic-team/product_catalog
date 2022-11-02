@@ -1,6 +1,6 @@
 import './Catalog.css';
 import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import './CardItem.css';
 import { getNumbers } from './helpers/getNumbers';
@@ -12,12 +12,14 @@ import { Product } from '../../types/Product';
 
 type Props = {
   phoneProducts: Product[];
+  cartState: Product[];
+  setCartState: React.Dispatch<React.SetStateAction<Product[]>>;
 };
 
 const items = getNumbers(1, 42);
 
 
-export const Catalog: React.FC<Props> = ({ phoneProducts }) => {
+export const Catalog: React.FC<Props> = ({ phoneProducts, setCartState, cartState }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
   const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 5));
@@ -44,6 +46,12 @@ export const Catalog: React.FC<Props> = ({ phoneProducts }) => {
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
+
+  const handleAdd = useCallback((phone: Product) => {
+    if (!cartState.includes(phone)) {
+      setCartState([...cartState, phone])
+    };
+  }, [cartState, setCartState]);
 
   return (
     <>
@@ -109,7 +117,8 @@ export const Catalog: React.FC<Props> = ({ phoneProducts }) => {
     <CatalogList 
       phones={phonesFromServer} 
       from={from} 
-      to={to} 
+      to={to}
+      handleAdd={handleAdd}
     />
 
     <Pagination

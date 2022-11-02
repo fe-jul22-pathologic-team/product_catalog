@@ -4,12 +4,14 @@ type Props = {
   phones: Product[];
   from: number;
   to: number;
+  handleAdd: (phone: Product) => void;
 };
 
 export const CatalogList: React.FC<Props> = ({ 
   phones,
   from,
-  to, 
+  to,
+  handleAdd,
 }) => {
   return (
     <div className="catalog__list">
@@ -45,7 +47,7 @@ export const CatalogList: React.FC<Props> = ({
         </div>
 
         <div className="buttons">
-          <button className="buttons__buy">Add to cart</button>
+          <button className="buttons__buy" onClick={() => handleAdd(phone)}>Add to cart</button>
           <button className="buttons__favorite">
           </button>
         </div>
