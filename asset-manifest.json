@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.f2bc55c0.css",
-    "main.js": "./static/js/main.f7619407.js",
+    "main.js": "./static/js/main.003507bc.js",
     "static/media/Mont-ThinItalic.eot": "./static/media/Mont-ThinItalic.5510e8d36aaaf841911a.eot",
     "static/media/Mont-ExtraLightItalic.eot": "./static/media/Mont-ExtraLightItalic.0329ea9a75589c1375c9.eot",
     "static/media/Mont-ThinItalic.ttf": "./static/media/Mont-ThinItalic.8e57fa31ffd3866e42ae.ttf",
@@ -50,7 +50,6 @@
     "static/media/Mont-ExtraLight.woff": "./static/media/Mont-ExtraLight.07c802eeca563c80d113.woff",
     "static/media/Mont-Thin.woff": "./static/media/Mont-Thin.3cd9a401cd72255772a4.woff",
     "static/media/Mont-Black.woff": "./static/media/Mont-Black.5a72a723d964a52918b9.woff",
-    "static/media/00.jpg": "./static/media/00.f1323560a1a6846dd694.jpg",
     "static/media/Mont-BlackItalic.woff2": "./static/media/Mont-BlackItalic.26d2032ef49512d7bcc6.woff2",
     "static/media/Mont-HeavyItalic.woff2": "./static/media/Mont-HeavyItalic.1e097b86679796f374f6.woff2",
     "static/media/Mont-RegularItalic.woff2": "./static/media/Mont-RegularItalic.d230f5a9245285a377ab.woff2",
@@ -70,10 +69,10 @@
     "static/media/Vector_favorite.svg": "./static/media/Vector_favorite.40718cb9e80841fa0951.svg",
     "index.html": "./index.html",
     "main.f2bc55c0.css.map": "./static/css/main.f2bc55c0.css.map",
-    "main.f7619407.js.map": "./static/js/main.f7619407.js.map"
+    "main.003507bc.js.map": "./static/js/main.003507bc.js.map"
   },
   "entrypoints": [
     "static/css/main.f2bc55c0.css",
-    "static/js/main.f7619407.js"
+    "static/js/main.003507bc.js"
   ]
 }
