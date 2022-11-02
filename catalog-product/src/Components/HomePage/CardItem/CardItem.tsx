@@ -21,7 +21,7 @@ export const CardItem = () => {
     return (
       <div className='product'>
         <img 
-          src={BASE_URL + product.image}
+          src={`${BASE_URL}/${product.image}`}
           alt={product.name}
           className={'product__image'}
         />
