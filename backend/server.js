@@ -1,7 +1,10 @@
 /* eslint-disable space-before-function-paren */
 'use strict';
 
-function createServer() {
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+export function createServer() {
   const express = require('express');
   const cors = require('cors');
   const products = require('../api/phones.json');
@@ -19,7 +22,7 @@ function createServer() {
     res.send(products);
   });
 
-  app.listen(PORT);
+  return app;
 }
 
 createServer();
