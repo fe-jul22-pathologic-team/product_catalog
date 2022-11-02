@@ -1,6 +1,10 @@
 import './Catalog.css';
 import { useSearchParams } from 'react-router-dom';
+
 import { useEffect, useState } from "react";
+
+import { useCallback, useEffect, useState } from "react";
+
 import './CardItem.css';
 import { getNumbers } from './helpers/getNumbers';
 import { Pagination } from './Pagination/Pagination';
@@ -9,15 +13,28 @@ import { Footer } from '../HomePage/Footer';
 import { Product } from '../../types/Product';
 import { getProducts } from '../../api/products';
 import { Loader } from '../Loader';
+import { CatalogList } from './CatalogList';
+import { Product } from '../../types/Product';
+
+type Props = {
+  phoneProducts: Product[];
+  cartState: Product[];
+  setCartState: React.Dispatch<React.SetStateAction<Product[]>>;
+};
+
 
 const items = getNumbers(1, 42);
 
 
-export const Catalog = () => {
+export const Catalog: React.FC<Props> = ({ phoneProducts, setCartState, cartState }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+  
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
+  
   const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 5));
+  
   const [phonesFromServer, setPhonesFromServer] = useState<Product[]>([]);
+  
   const [isLoading, setIsLoading] = useState(false);
 
   const loadData = async () => {
@@ -29,6 +46,12 @@ export const Catalog = () => {
   useEffect(() => {
     loadData().then(() => setIsLoading(true));
   }, []);
+
+
+  useEffect(() => {
+    setPhonesFromServer(phoneProducts);
+  }, [phoneProducts]);
+
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -47,6 +70,12 @@ export const Catalog = () => {
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
+
+  const handleAdd = useCallback((phone: Product) => {
+    if (!cartState.includes(phone)) {
+      setCartState([...cartState, phone])
+    };
+  }, [cartState, setCartState]);
 
   return (
     <>
@@ -169,6 +198,41 @@ export const Catalog = () => {
       </section>
 
       <Footer />
+
+        <select
+          name=""
+          id=""
+          className="sort-by__list"
+          value={perPage}
+          onChange={event => {
+            setPerPage(+event.target.value);
+            setPage(1);
+          }}
+        >
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </div>
+
+    <CatalogList 
+      phones={phonesFromServer} 
+      from={from} 
+      to={to}
+      handleAdd={handleAdd}
+    />
+
+    <Pagination
+    total={items.length}
+    perPage={perPage}
+    currentPage={page}
+    onPageChange={handlePageChange}
+  />
+    </section>
+
+    <Footer />
     </>
   );
 };

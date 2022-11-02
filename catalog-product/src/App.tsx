@@ -13,6 +13,7 @@ import { Product } from './types/Product';
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [cartState, setCartState] = useState<Product[]>([]);
 
   const loadData = async () => {
     const data = await getProducts();
@@ -25,8 +26,6 @@ export function App() {
 
   }, []);
 
-  console.log(products);
-  
   return (
     <>
       <Routes>
@@ -37,7 +36,11 @@ export function App() {
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route 
           path="/phones" 
-          element={<Catalog />}
+          element={<Catalog 
+              phoneProducts={products}
+              cartState={cartState}
+              setCartState={setCartState}
+            />}
         />
         <Route 
           path="/tablets" 
