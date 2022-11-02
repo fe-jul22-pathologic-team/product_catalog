@@ -1,4 +1,4 @@
-const BASE_URL = 'https://pathologic-app.herokuapp.com';
+export const BASE_URL = 'https://pathologic-app.herokuapp.com';
 
 type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 

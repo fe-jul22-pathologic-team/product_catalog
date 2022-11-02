@@ -1,5 +1,5 @@
 import './CardItem.css';
-const image = require('../../../img/phones/apple-iphone-7/black/00.jpg');
+import { BASE_URL } from '../../../utils/fetchClient';
 
 export const CardItem = () => {
   const product = {
@@ -15,14 +15,14 @@ export const CardItem = () => {
     color: "black",
     ram: "2GB",
     year: 2016,
-    image,
+    image: "img/phones/apple-iphone-7/black/00.jpg",
   }; 
 
     return (
       <div className='product'>
         <img 
-          src={product.image} 
-          alt={product.name} 
+          src={`${BASE_URL}/${product.image}`}
+          alt={product.name}
           className={'product__image'}
         />
         <p className='product__name'>

@@ -1,5 +1,6 @@
 import { Product } from "../../../types/Product";
 import { Loader } from "../../Loader";
+import { BASE_URL } from "../../../utils/fetchClient";
 
 type Props = {
   phones: Product[];
@@ -25,7 +26,7 @@ export const CatalogList: React.FC<Props> = ({
               {phones.slice(from - 1, to).map((phone) => (
               <div className='phone' key={phone.id}>
                 <img
-                  src={phone.image}
+                  src={`${BASE_URL}/${phone.image}`}
                   alt={phone.name}
                   className={'phone__image'}
                 />
