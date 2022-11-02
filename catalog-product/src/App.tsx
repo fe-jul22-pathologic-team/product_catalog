@@ -26,8 +26,6 @@ export function App() {
 
   }, []);
 
-  console.log(cartState);
-
   return (
     <>
       <Routes>
