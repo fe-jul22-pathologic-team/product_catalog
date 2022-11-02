@@ -66,7 +66,5 @@ const Product = sequelize.define('product', {
 export async function getAll() {
   const result = await Product.findAll();
 
-  console.log(result);
-
   return result;
 }
