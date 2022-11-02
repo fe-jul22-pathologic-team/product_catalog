@@ -1,46 +1,74 @@
+import { useState } from 'react';
+import { Product } from '../../types/Product';
 import './CartItem.css';
 
-export const CartItem = () => {
+type Props = {
+  product: Product;
+  products: Product[];
+  setCartState: React.Dispatch<React.SetStateAction<Product[]>>;
+};
+
+export const CartItem: React.FC<Props> = ({
+  products,
+  product, 
+  product: {
+    name,
+    image,
+    price,
+  },
+  setCartState,
+}) => {
+  const deleteProduct = () => {
+    const filterProducts = products.filter(item => item !== product);
+
+    setCartState(filterProducts);
+  }
+
+  const [productCount, setProductCount] = useState(1);
+
+  const addedProduct = () => setProductCount(productCount + 1);
+  const minusProduct = () => setProductCount(productCount - 1);
+
   return (
     <div className="cart-item">
       <div className="cart-item__info">
-        <a href='/' className="cart-item__exit">
+        <button className="cart-item__exit" onClick={deleteProduct}>
           X
-        </a>
+        </button>
 
         <a
-          href=""
+          href="/"
           className="cart-item__link"
         >
           <img
-            src="/"
-            alt="Phone"
+            src={image}
+            alt="product"
             className="cart-item__image"
           />
         </a>
 
         <p className="cart-item__title">
-          Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+          {name}
         </p>
       </div>
 
       <div className="cart-item__buy">
         <div className="cart-item__counter">
-          <button className="cart-item__button cart-item__drop">
+          <button className="cart-item__button cart-item__drop" onClick={minusProduct}>
             -
           </button>
 
           <p className="cart-item__count">
-            1
+            {productCount}
           </p>
 
-          <button className="cart-item__button cart-item__raise">
+          <button className="cart-item__button cart-item__raise" onClick={addedProduct}>
             +
           </button>
         </div>
 
         <p className="cart-item__price">
-          $1099
+          {price}
         </p>
       </div>
     </div>

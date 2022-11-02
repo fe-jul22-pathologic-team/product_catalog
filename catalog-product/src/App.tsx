@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
+
 import './App.css';
-import { CartItem } from './Components/CartItem';
 import { Cart } from './Components/Cart';
 import { Catalog } from './Components/Catalog';
 import { Footer } from './Components/HomePage/Footer';
@@ -66,11 +66,11 @@ export function App() {
 
         <Route
           path='/test'
-          element={<CartItem />} 
+          element={<h1>Test</h1>} 
         />
         <Route 
           path='/cart'
-          element={<Cart />}
+          element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
         <Route 
           path="*" 

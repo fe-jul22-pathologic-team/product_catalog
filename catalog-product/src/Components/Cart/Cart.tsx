@@ -1,53 +1,75 @@
 import { Footer } from "../HomePage/Footer";
 import { Header } from "../HomePage/Header";
 import { Vector } from './Vector';
-import { CardItem } from '../HomePage/CardItem/CardItem';
 import './Cart.css';
+import { CartItem } from "../CartItem";
+import { Product } from "../../types/Product";
 
-export const Cart = () => {
+type Props = {
+  cartProducts: Product[];
+  setCartProducts: React.Dispatch<React.SetStateAction<Product[]>>;
+};
+
+export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
+  const totalPrice = cartProducts.map(({ price }) => price).reduce((a, b) => a + b, 0);
+
   return (
     <>
-    <Header />
+      <Header />
       <div className="cart">
         <div className="cart__container">
           <div className="backButton">
             <a href="back" className="backLink">
-              <Vector/>
+              <Vector />
               Back
             </a>
           </div>
           <span className="cart__logo">
             Cart
           </span>
-          <form 
-            className="cart__form" 
+          <form
+            className="cart__form"
             action="submit"
             id="cart_form"
           >
-            <ul className="cart__list">
-              <li className="cart__item">
-                <CardItem />
-              </li>
-            </ul>
-            <div className="cart__bill">
-              <div className="bill">
-                <span className="totalPrice">2000$</span>
-                <span className="totalItems">Total for 3 items</span>
-              </div>
-              <button 
-                className="bill__button" 
-                type="submit" 
-                form="cart__form" 
-                value="Submit"
-              >
-                Checkout
-              </button>
-            </div>
+            {cartProducts.length > 0
+              ? (
+                <>
+                  <ul className="cart__list">
+                    {cartProducts.map((product) => (
+                      <li className="cart__item" key={product.id}>
+                        <CartItem 
+                          products={cartProducts}
+                          product={product} 
+                          setCartState={setCartProducts} 
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="cart__bill">
+                    <div className="bill">
+                      <span className="totalPrice">{`${totalPrice}$`}</span>
+                      <span className="totalItems">Total for {cartProducts.length} items</span>
+                    </div>
+                    <button
+                      className="bill__button"
+                      type="submit"
+                      form="cart__form"
+                      value="Submit"
+                    >
+                      Checkout
+                    </button>
+                  </div>
+                </>
+              )
+              : (
+                <h1> Cart is empty</h1>
+              )}
           </form>
         </div>
       </div>
-      
-    <Footer />
+
+      <Footer />
     </>
   );
 };

@@ -54,9 +54,9 @@ export const Catalog: React.FC<Props> = ({
   };
 
   const handleAdd = useCallback((phone: Product) => {
-    if (!cartState.includes(phone)) {
-      setCartState([...cartState, phone])
-    };
+      if (!cartState.includes(phone)) {
+        setCartState([...cartState, phone])
+      };
   }, [cartState, setCartState]);
 
   return (
