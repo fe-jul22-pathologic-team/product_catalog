@@ -1,6 +1,7 @@
 import { Footer } from "../HomePage/Footer";
 import { Header } from "../HomePage/Header";
 import { Vector } from './Vector';
+import { CardItem } from '../HomePage/CardItem/CardItem';
 import './Cart.css';
 
 export const Cart = () => {
@@ -25,7 +26,7 @@ export const Cart = () => {
           >
             <ul className="cart__list">
               <li className="cart__item">
-                cart items here
+                <CardItem />
               </li>
             </ul>
             <div className="cart__bill">

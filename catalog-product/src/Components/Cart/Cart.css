@@ -25,6 +25,7 @@
 }
 .cart__bill {
     width: 368px;
+    height: 206px;
     border: solid #89939A 0.5px;
     padding: 24px;
     display: flex;
@@ -63,6 +64,9 @@
 
 .cart__form {
     display: flex;
+}
+.cart__list{
+    list-style-type: none;
 }
 
 @media (min-width: 320px) and (max-width: 1199px){
