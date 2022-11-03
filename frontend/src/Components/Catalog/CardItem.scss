@@ -7,31 +7,38 @@
 
   border: 1px solid #E2E6E9;
   box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
-}
 
-.phone__image {
-  height: 196px;
-  margin: 0 auto;
-  margin-bottom: 24px;
-}
+  &__image {
+    height: 196px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    transition: transform 500ms;
 
-.phone__name {
-  font-family: "Mont", sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
+    &:hover {
+      transform: scale(120%);
+    }
+  }
 
-  margin-bottom: 8px;
-}
+  &__name {
+    height: 42px;
 
-.phone__price {
-  display: flex;
-  width: 100%;
+    font-family: "Mont", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
 
-  margin-bottom: 16px;
-  padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
 
-  border-bottom: 1px solid #E2E6E9;
+  &__price {
+    display: flex;
+    width: 100%;
+
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #E2E6E9;
+  }
 }
 
 .price__current {
@@ -89,29 +96,50 @@
   gap: 8px;
 
   height: 40px;
-}
 
-.buttons__buy {
-  height: 100%;
-  flex-grow: 1;
+  &__buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  background-color: #313237;
+    height: 100%;
+    flex-grow: 1;
+  
+    background-color: #313237;
+  
+    font-family: "Mont", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #fff;
+    transition: all 300ms;
 
-  font-family: "Mont", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-}
+    &:hover {
+      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    }
 
-.buttons__favorite {
-  height: 40px;
-  width: 40px;
+    &:active {
+      background-color: #fff;
+      color: #27AE60;
+      border: 0;
+    }
+  }
+  
+  &__favorite {
+    height: 40px;
+    width: 40px;
+  
+    background-image: url('../../img/icons/Vector_favorite.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  
+    border: 1px solid #b4bdc4;
 
-  background-image: url('../../img/icons/Vector_favorite.svg');
-  background-repeat: no-repeat;
-  background-position: center;
+    transition: border 500ms;
 
-  border: 1px solid #b4bdc4;
+    &:hover {
+      border: 1px solid #313237;
+    }
+  }
 }

@@ -8,6 +8,8 @@ type Props = {
   to: number;
   handleAdd: (phone: Product) => void;
   isLoading: boolean;
+  sortedCatalog: Product[];
+  setCountProducts: (countProducts: number) => void;
 };
 
 export const CatalogList: React.FC<Props> = ({
@@ -16,6 +18,8 @@ export const CatalogList: React.FC<Props> = ({
   to,
   isLoading,
   handleAdd,
+  sortedCatalog,
+  setCountProducts,
 }) => {
   return (
     <>
@@ -23,7 +27,7 @@ export const CatalogList: React.FC<Props> = ({
         isLoading
           ? (
             <div className="catalog__list">
-              {phones.slice(from - 1, to).map((phone) => (
+              {sortedCatalog.slice(from - 1, to).map((phone) => (
               <div className='phone' key={phone.id}>
                 <img
                   src={`${BASE_URL}/${phone.image}`}
@@ -55,7 +59,11 @@ export const CatalogList: React.FC<Props> = ({
                 </div>
 
                 <div className="buttons">
-                  <button className="buttons__buy" onClick={() => handleAdd(phone)}>Add to cart</button>
+                  <button className="buttons__buy" onClick={() => {
+                    handleAdd(phone);
+
+                    setCountProducts(1);
+                  }}>Add to cart</button>
                   <button className="buttons__favorite">
                   </button>
                 </div>

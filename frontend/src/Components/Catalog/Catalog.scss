@@ -2,6 +2,66 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  &__title {
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+  
+    color: #313237;
+  
+    margin: 0;
+  
+    margin-left: 16px;
+  }
+  
+  &__amount {
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  
+    color: #89939A;
+  
+    margin: 0;
+    padding: 0;
+  
+    margin-left: 16px;
+  }
+  
+  &__sorter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  &__sort-by {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  
+    margin-left: 16px;
+  }
+
+  &__items-on-page {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  
+    margin-right: 16px;
+  }
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
 }
 
 .navigation {
@@ -11,69 +71,29 @@
 
   margin-top: 24px;
   margin-left: 16px;
-}
 
-.navigation__previous {
-  width: 16px;
-  height: 16px;
-}
+  &__link-homePage {
+    display: block;
 
-.navigation__nesting {
-  color: #B4BDC4;
-}
+    background-image: url('./img/Home.svg');
+    background-size: contain;
 
-.navigation__current {
-  font-family: 'Mont';
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-
-  color: #89939A;
-}
-
-.catalog__title {
-  font-family: 'Mont';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 41px;
-  letter-spacing: -0.01em;
-
-  color: #313237;
-
-  margin: 0;
-
-  margin-left: 16px;
-}
-
-.catalog__amount {
-  font-family: 'Mont';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-
-  color: #89939A;
-
-  margin: 0;
-  padding: 0;
-
-  margin-left: 16px;
-}
-
-.catalog__sorter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-
-.catalog__sort-by {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  margin-left: 16px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  &__nesting {
+    color: #B4BDC4;
+  }
+  
+  &__current {
+    font-family: 'Mont';
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+  
+    color: #89939A;
+  }
 }
 
 .sort-by {
@@ -91,21 +111,6 @@
   height: 40px;
 
   border: 1px solid #B4BDC4;
-}
-
-.catalog__items-on-page {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-
-  margin-right: 16px;
-}
-
-.catalog__list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
 }
 
 @media (min-width: 1200px) {
