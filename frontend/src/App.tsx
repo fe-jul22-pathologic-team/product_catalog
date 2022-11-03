@@ -3,11 +3,14 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
 import './App.scss';
+import Accessories from './Components/Accessories/Accessories';
 import { Cart } from './Components/Cart';
 import { Catalog } from './Components/Catalog';
+import Favorites from './Components/Favorites/Favorites';
 import { Footer } from './Components/HomePage/Footer';
 import { Header } from './Components/HomePage/Header';
 import { HomePage } from './Components/HomePage/HomePage';
+import Tablets from './Components/Tablets/Tablets';
 import { Product } from './types/Product';
 
 
@@ -56,7 +59,7 @@ export function App() {
           element={
           <>
             <Header />
-            <h1>Tablets page</h1>
+              <Tablets/>
             <Footer />
           </>
         }
@@ -66,7 +69,7 @@ export function App() {
           element={
           <>
             <Header />
-            <h1>Accessories page</h1>
+              <Accessories/>
             <Footer />
           </>}
         />
@@ -79,6 +82,17 @@ export function App() {
           path='/cart'
           element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
+        <Route
+          path='/favorites'
+          element={
+            <>
+              <Header />
+                <Favorites />
+              <Footer/>
+            </>
+          } 
+        /> 
+
         <Route 
           path="*" 
           element={
