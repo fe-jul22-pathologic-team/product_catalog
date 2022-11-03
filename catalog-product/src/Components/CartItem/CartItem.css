@@ -6,6 +6,8 @@
   width: 300px;
   height: 160px;
 
+  margin-bottom: 16px;
+
   border: 1px solid #E2E6E9;
 }
 
@@ -14,6 +16,13 @@
   flex-direction: row;
   align-items: center;
   gap: 25px;
+}
+
+.cart-item__image {
+  height: 64px;
+  width: 64px;
+
+  object-fit: contain;
 }
 
 .cart-item__buy {
@@ -28,6 +37,9 @@
 
   cursor: pointer;
   text-decoration: none;
+
+  border: 0;
+  background-color: #fff;
 
   color: #89939A;
 }

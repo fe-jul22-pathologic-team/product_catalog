@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
+
 import './App.css';
-import { CartItem } from './Components/CartItem';
 import { Cart } from './Components/Cart';
 import { Catalog } from './Components/Catalog';
 import { Footer } from './Components/HomePage/Footer';
@@ -27,6 +27,14 @@ export function App() {
 
   }, []);
 
+  const handleAdd = useCallback((phone: Product) => {
+      if (!cartState.includes(phone)) {
+        cartState.push(phone);
+
+        setCartState(cartState);
+      };
+  }, [cartState]);
+
   return (
     <>
       <Routes>
@@ -39,9 +47,8 @@ export function App() {
           path="/phones" 
           element={<Catalog 
               phoneProducts={products}
-              cartState={cartState}
-              setCartState={setCartState}
               isLoading={isLoading}
+              handleAdd={handleAdd}
             />}
         />
         <Route 
@@ -66,11 +73,11 @@ export function App() {
 
         <Route
           path='/test'
-          element={<CartItem />} 
+          element={<h1>Test</h1>} 
         />
         <Route 
           path='/cart'
-          element={<Cart />}
+          element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
         <Route 
           path="*" 
