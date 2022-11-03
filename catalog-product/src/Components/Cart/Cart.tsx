@@ -4,6 +4,7 @@ import { Vector } from './Vector';
 import './Cart.css';
 import { CartItem } from "../CartItem";
 import { Product } from "../../types/Product";
+import { useState } from "react";
 
 type Props = {
   cartProducts: Product[];
@@ -11,7 +12,22 @@ type Props = {
 };
 
 export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
-  const totalPrice = cartProducts.map(({ price }) => price).reduce((a, b) => a + b, 0);
+  const removeDuplicate = () => {
+    const result: Product[] = [];
+
+    cartProducts.map(product => {
+      if (!result.includes(product)) {
+        result.push(product);
+      }
+
+      return result;
+    });
+
+    return result;
+  }
+
+  const visibleProducts = removeDuplicate();
+  const [totalPrice, setTotalPrice] = useState(cartProducts.map(({ price }) => price).reduce((a, b) => a + b, 0));
 
   return (
     <>
@@ -27,21 +43,21 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
           <span className="cart__logo">
             Cart
           </span>
-          <form
+          <div
             className="cart__form"
-            action="submit"
             id="cart_form"
           >
-            {cartProducts.length > 0
+            {visibleProducts.length > 0
               ? (
                 <>
                   <ul className="cart__list">
-                    {cartProducts.map((product) => (
+                    {visibleProducts.map((product) => (
                       <li className="cart__item" key={product.id}>
                         <CartItem 
                           products={cartProducts}
                           product={product} 
-                          setCartState={setCartProducts} 
+                          setCartState={setCartProducts}
+                          setTotal={setTotalPrice}
                         />
                       </li>
                     ))}
@@ -53,7 +69,6 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
                     </div>
                     <button
                       className="bill__button"
-                      type="submit"
                       form="cart__form"
                       value="Submit"
                     >
@@ -65,7 +80,7 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
               : (
                 <h1> Cart is empty</h1>
               )}
-          </form>
+          </div>
         </div>
       </div>
 

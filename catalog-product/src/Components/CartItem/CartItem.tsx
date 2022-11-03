@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Product } from '../../types/Product';
 import './CartItem.css';
 
@@ -6,6 +6,7 @@ type Props = {
   product: Product;
   products: Product[];
   setCartState: React.Dispatch<React.SetStateAction<Product[]>>;
+  setTotal: React.Dispatch<React.SetStateAction<number>>
 };
 
 export const CartItem: React.FC<Props> = ({
@@ -17,17 +18,34 @@ export const CartItem: React.FC<Props> = ({
     price,
   },
   setCartState,
+  setTotal,
 }) => {
-  const deleteProduct = () => {
+  const deleteProduct = useCallback(() => {
     const filterProducts = products.filter(item => item !== product);
 
     setCartState(filterProducts);
-  }
+  }, [product, products, setCartState]);
 
-  const [productCount, setProductCount] = useState(1);
+  const [productCount, setProductCount] = useState(products.filter(item => item === product).length);
 
-  const addedProduct = () => setProductCount(productCount + 1);
-  const minusProduct = () => setProductCount(productCount - 1);
+  const plusProduct = useCallback(() => {
+    products.push(product);
+
+    setProductCount(products.filter(item => item === product).length);
+
+    setCartState(products);
+
+    setTotal(products.map(({ price }) => price).reduce((a, b) => a + b, 0));
+  }, [product, products, setCartState, setTotal]);
+
+  const minusProduct = useCallback(() => {
+    products.pop();
+
+    setCartState(products);
+
+    setProductCount(products.filter(item => item === product).length);
+    setTotal(products.map(({ price }) => price).reduce((a, b) => a + b, 0));
+  }, [product, products, setCartState, setTotal]);
 
   return (
     <div className="cart-item">
@@ -62,7 +80,7 @@ export const CartItem: React.FC<Props> = ({
             {productCount}
           </p>
 
-          <button className="cart-item__button cart-item__raise" onClick={addedProduct}>
+          <button className="cart-item__button cart-item__raise" onClick={plusProduct}>
             +
           </button>
         </div>
