@@ -4,10 +4,10 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getNumbers } from './helpers/getNumbers';
 import { Pagination } from './Pagination/Pagination';
-import { Header } from '../HomePage/Header/Header';
-import { Footer } from '../HomePage/Footer';
 import { CatalogList } from './CatalogList';
 import { Product } from '../../types/Product';
+import { Footer } from '../../Components/Footer';
+import { Header } from '../../Components/Header';
 import { SortBy } from './types/SortBy';
 
 type Props = {
@@ -53,7 +53,6 @@ export const Catalog: React.FC<Props> = ({
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
   const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 10));
   const [sortType, setSortType] = useState<SortBy>(SortBy.Newest);
-  const [countProducts, setCountProducts] = useState(0);
 
 
   useEffect(() => {
@@ -157,7 +156,6 @@ export const Catalog: React.FC<Props> = ({
           handleAdd={handleAdd}
           isLoading={isLoading}
           sortedCatalog={sortedCatalog}
-          setCountProducts={setCountProducts}
         />
 
         <Pagination

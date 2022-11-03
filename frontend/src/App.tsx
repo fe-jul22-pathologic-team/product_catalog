@@ -3,13 +3,13 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
 import './App.scss';
-import { Cart } from './Components/Cart';
-import { Catalog } from './Components/Catalog';
-import { Favourites } from './Components/Favourites';
-import { Footer } from './Components/HomePage/Footer';
-import { Header } from './Components/HomePage/Header';
-import { HomePage } from './Components/HomePage/HomePage';
+import { Cart } from './Pages/Cart';
+import { Catalog } from './Pages/Catalog';
+
+import { Header } from './Components/Header';
+import { HomePage } from './Pages/HomePage/HomePage';
 import { Product } from './types/Product';
+import { Footer } from './Components/Footer';
 
 
 export function App() {
@@ -81,10 +81,6 @@ export function App() {
           element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
 
-        <Route
-          path='/favourites'
-          element={<Favourites products={products} />}
-        />
         <Route
           path="*"
           element={

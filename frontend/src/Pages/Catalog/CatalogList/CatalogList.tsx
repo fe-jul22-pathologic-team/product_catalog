@@ -1,5 +1,5 @@
+import { Loader } from "../../../Components/Loader";
 import { Product } from "../../../types/Product";
-import { Loader } from "../../Loader";
 import { BASE_URL } from "../../../utils/fetchClient";
 
 type Props = {
@@ -9,7 +9,6 @@ type Props = {
   handleAdd: (phone: Product) => void;
   isLoading: boolean;
   sortedCatalog: Product[];
-  setCountProducts: (countProducts: number) => void;
 };
 
 export const CatalogList: React.FC<Props> = ({
@@ -19,8 +18,8 @@ export const CatalogList: React.FC<Props> = ({
   isLoading,
   handleAdd,
   sortedCatalog,
-  setCountProducts,
 }) => {
+
   return (
     <>
       {
@@ -61,8 +60,6 @@ export const CatalogList: React.FC<Props> = ({
                 <div className="buttons">
                   <button className="buttons__buy" onClick={() => {
                     handleAdd(phone);
-
-                    setCountProducts(1);
                   }}>Add to cart</button>
                   <button className="buttons__favorite">
                   </button>

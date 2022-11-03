@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { Product } from '../../types/Product';
+import { Product } from '../../../types/Product';
 import './CartItem.scss';
-import { BASE_URL } from '../../utils/fetchClient';
+import { BASE_URL } from '../../../utils/fetchClient';
 
 type Props = {
   product: Product;
@@ -46,9 +46,12 @@ export const CartItem: React.FC<Props> = ({
 
     setCartState(products);
 
-    setProductCount(products.filter(item => item === product).length);
+    products.includes(product) 
+      ? setProductCount(products.filter(item => item === product).length)
+      : deleteProduct(); 
+
     setTotal(products.map(({ price }) => price).reduce((a, b) => a + b, 0));
-  }, [product, products, setCartState, setTotal]);
+  }, [deleteProduct, product, products, setCartState, setTotal]);
 
   return (
     <div className="cart-item">
