@@ -10,6 +10,9 @@ import { Header } from './Components/Header';
 import { HomePage } from './Pages/HomePage/HomePage';
 import { Product } from './types/Product';
 import { Footer } from './Components/Footer';
+import Tablets from './Components/Tablets/Tablets';
+import Accessories from './Components/Accessories/Accessories';
+import Favorites from './Components/Favorites/Favorites';
 
 
 export function App() {
@@ -55,21 +58,21 @@ export function App() {
         <Route
           path="/tablets"
           element={
-            <>
-              <Header />
-              <h1>Tablets page</h1>
-              <Footer />
-            </>
-          }
+          <>
+            <Header />
+              <Tablets />
+            <Footer />
+          </>
+        }
         />
         <Route
           path="/accessories"
           element={
-            <>
-              <Header />
-              <h1>Accessories page</h1>
-              <Footer />
-            </>}
+          <>
+            <Header />
+              <Accessories/>
+            <Footer />
+          </>}
         />
 
         <Route
@@ -80,9 +83,19 @@ export function App() {
           path='/cart'
           element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
-
         <Route
-          path="*"
+          path='/favorites'
+          element={
+            <>
+              <Header />
+                <Favorites />
+              <Footer/>
+            </>
+          } 
+        /> 
+
+        <Route 
+          path="*" 
           element={
             <>
               <Header />
