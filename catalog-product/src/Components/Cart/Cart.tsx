@@ -4,7 +4,7 @@ import { Vector } from './Vector';
 import './Cart.css';
 import { CartItem } from "../CartItem";
 import { Product } from "../../types/Product";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 type Props = {
   cartProducts: Product[];
@@ -28,6 +28,12 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
 
   const visibleProducts = removeDuplicate();
   const [totalPrice, setTotalPrice] = useState(cartProducts.map(({ price }) => price).reduce((a, b) => a + b, 0));
+
+  const handleBuy = useCallback(() => {
+    alert('Lol!!!');
+
+    setCartProducts([]);
+  }, [setCartProducts])
 
   return (
     <>
@@ -71,6 +77,7 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
                       className="bill__button"
                       form="cart__form"
                       value="Submit"
+                      onClick={handleBuy}
                     >
                       Checkout
                     </button>

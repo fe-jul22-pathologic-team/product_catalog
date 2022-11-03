@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Product } from '../../types/Product';
 import './CartItem.css';
+import { BASE_URL } from '../../utils/fetchClient';
 
 type Props = {
   product: Product;
@@ -39,7 +40,9 @@ export const CartItem: React.FC<Props> = ({
   }, [product, products, setCartState, setTotal]);
 
   const minusProduct = useCallback(() => {
-    products.pop();
+  const indexOfProduct = products.indexOf(product);
+
+  products.splice(indexOfProduct, 1);
 
     setCartState(products);
 
@@ -59,7 +62,7 @@ export const CartItem: React.FC<Props> = ({
           className="cart-item__link"
         >
           <img
-            src={image}
+            src={`${BASE_URL}/${image}`}
             alt="product"
             className="cart-item__image"
           />
