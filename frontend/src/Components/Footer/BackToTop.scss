@@ -1,8 +1,8 @@
-@import '../../../../styles/styles.scss';
+@import '../../styles/styles.scss';
 
 .scroll_button {
   &__text{
-    @extend %small_text;
+    @extend %text_small;
     text-align: center;
     color: $clolor-secondary;
   }
