@@ -1,9 +1,16 @@
+@import '../../../styles/styles.scss';
+
 .main {
   display: flex;
   flex-direction: column;
 
   margin-top: 70px;
   margin-bottom: 70px;
+
+  @include onDesktop {
+    margin-top: 90px;
+    margin-bottom: 90px;
+  }
 }
 
 .section {
@@ -11,19 +18,12 @@
   flex-direction: column;
 
   padding-bottom: 60px;
-}
 
-.section:last-child {
-  padding-bottom: 0;
-}
-
-@media (min-width: 1200px) {
-  .main {
-    margin-top: 90px;
-    margin-bottom: 90px;
+  @include onDesktop {
+    padding-bottom: 80px;
   }
 
-  .section {
-    padding-bottom: 80px;
+  &:last-child {
+    padding-bottom: 0;
   }
 }
