@@ -23,7 +23,7 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
       return result;
     });
 
-    return result;
+    return result.sort((product1, product2) => product1.price - product2.price);
   }
 
   const visibleProducts = removeDuplicate();
