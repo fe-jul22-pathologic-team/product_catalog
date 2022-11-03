@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../../../api/products";
 import { Product } from "../../../types/Product";
 import { Loader } from "../../Loader";
 import { BASE_URL } from "../../../utils/fetchClient";

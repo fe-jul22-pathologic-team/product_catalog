@@ -1,6 +1,6 @@
 import './Catalog.css';
 import { useSearchParams } from 'react-router-dom';
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import './CardItem.css';
 import { getNumbers } from './helpers/getNumbers';
@@ -12,26 +12,20 @@ import { Product } from '../../types/Product';
 
 type Props = {
   phoneProducts: Product[];
-  cartState: Product[];
-  setCartState: React.Dispatch<React.SetStateAction<Product[]>>;
   isLoading: boolean;
+  handleAdd: (phone: Product) => void
 };
 
 export const Catalog: React.FC<Props> = ({
   phoneProducts,
-  setCartState, 
-  cartState,
   isLoading,
+  handleAdd,
 }) => {
   const items = getNumbers(1, phoneProducts.length);
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
   const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 5));
-  const [phonesFromServer, setPhonesFromServer] = useState<Product[]>([]);
 
-  useEffect(() => {
-    setPhonesFromServer(phoneProducts);
-  }, [phoneProducts]);
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -45,17 +39,11 @@ export const Catalog: React.FC<Props> = ({
   const from = ((page - 1) * perPage) + 1;
   const to = Math.min(items.length, page * perPage);
 
-  const countModels = phonesFromServer.length;
+  const countModels = phoneProducts.length;
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
-
-  const handleAdd = useCallback((phone: Product) => {
-    if (!cartState.includes(phone)) {
-      setCartState([...cartState, phone])
-    };
-  }, [cartState, setCartState]);
 
   return (
     <>
@@ -119,7 +107,7 @@ export const Catalog: React.FC<Props> = ({
     </div>
 
     <CatalogList 
-      phones={phonesFromServer} 
+      phones={phoneProducts} 
       from={from} 
       to={to}
       handleAdd={handleAdd}
