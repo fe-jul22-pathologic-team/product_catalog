@@ -10,6 +10,9 @@ import { Header } from './Components/Header';
 import { HomePage } from './Pages/HomePage/HomePage';
 import { Product } from './types/Product';
 import { Footer } from './Components/Footer';
+import Tablets from './Components/Tablets/Tablets';
+import Accessories from './Components/Accessories/Accessories';
+import Favorites from './Components/Favorites/Favorites';
 
 
 export function App() {
@@ -57,7 +60,7 @@ export function App() {
           element={
           <>
             <Header />
-              <Tablets/>
+              <Tablets />
             <Footer />
           </>
         }
