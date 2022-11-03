@@ -5,10 +5,11 @@ import { getProducts } from './api/products';
 import './App.scss';
 import { Cart } from './Pages/Cart';
 import { Catalog } from './Pages/Catalog';
-import { Footer } from './Pages/HomePage/Footer';
+
 import { Header } from './Components/Header';
 import { HomePage } from './Pages/HomePage/HomePage';
 import { Product } from './types/Product';
+import { Footer } from './Components/Footer';
 
 
 export function App() {

@@ -1,5 +1,5 @@
+import { Loader } from "../../../Components/Loader";
 import { Product } from "../../../types/Product";
-import { Loader } from "../../Loader";
 import { BASE_URL } from "../../../utils/fetchClient";
 
 type Props = {

@@ -1,9 +1,9 @@
 import './Cart.scss';
 import { Header } from "../../Components/Header";
-import { Footer } from "../HomePage/Footer";
 
 import { Product } from "../../types/Product";
 import { MainCart } from './MainCart';
+import { Footer } from '../../Components/Footer';
 
 type Props = {
   cartProducts: Product[];
