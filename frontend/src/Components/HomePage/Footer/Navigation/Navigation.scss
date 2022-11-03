@@ -1,11 +1,23 @@
-.navigation__link {
-  font-weight: 800;
-  font-size: 12px;
-  line-height: 11px;
+@import '../../../../styles/styles.scss';
 
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.f-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 
-  color: #89939a;
-  text-decoration: none;
+  @include onTablet {
+    flex-direction: row;
+    gap: 80px;
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+    gap: 100px;
+  }
+
+  &__link {
+    @extend %text_uppercase;
+    color: $clolor-secondary;
+    text-decoration: none;
+  }
 }
