@@ -1,5 +1,5 @@
 import { BackToTop } from './BackToTop/BackToTop';
-import './Footer.css';
+import './Footer.scss';
 
 import { FooterNavigation } from "./Navigation/FooterNavigation";
 

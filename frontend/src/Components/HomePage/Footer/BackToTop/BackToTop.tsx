@@ -1,4 +1,4 @@
-import './BackToTop.css';
+import './BackToTop.scss';
 
 export const BackToTop = () => {
   const vector = require('./vector.png');

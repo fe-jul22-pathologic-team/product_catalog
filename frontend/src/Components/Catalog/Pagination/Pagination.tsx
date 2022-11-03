@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 
 import { getNumbers } from '../helpers/getNumbers';
-import './Pagination.css';
+import './Pagination.scss';
 
 type Props = {
   total: number;

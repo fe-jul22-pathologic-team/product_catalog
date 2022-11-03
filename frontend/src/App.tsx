@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
-import './App.css';
+import './App.scss';
 import { Cart } from './Components/Cart';
 import { Catalog } from './Components/Catalog';
 import { Footer } from './Components/HomePage/Footer';

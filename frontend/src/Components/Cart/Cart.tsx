@@ -1,7 +1,7 @@
 import { Footer } from "../HomePage/Footer";
 import { Header } from "../HomePage/Header";
 import { Vector } from './Vector';
-import './Cart.css';
+import './Cart.scss';
 import { CartItem } from "../CartItem";
 import { Product } from "../../types/Product";
 import { useCallback, useState } from "react";

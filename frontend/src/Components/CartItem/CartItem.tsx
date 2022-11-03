@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Product } from '../../types/Product';
-import './CartItem.css';
+import './CartItem.scss';
 import { BASE_URL } from '../../utils/fetchClient';
 
 type Props = {

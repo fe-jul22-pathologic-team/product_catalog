@@ -1,8 +1,7 @@
-import './Catalog.css';
+import './Catalog.scss';
+import './CardItem.scss';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
-
-import './CardItem.css';
 import { getNumbers } from './helpers/getNumbers';
 import { Pagination } from './Pagination/Pagination';
 import { Header } from '../HomePage/Header';

@@ -2,7 +2,7 @@ import { Favorites } from './Favorites';
 import { Menu } from './Menu';
 import { Logo } from './Logo';
 import { Shop } from './Shop';
-import './Header.css';
+import './Header.scss';
 import { Link } from 'react-router-dom';
 
 

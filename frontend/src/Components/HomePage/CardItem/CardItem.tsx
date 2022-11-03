@@ -1,4 +1,4 @@
-import './CardItem.css';
+import './CardItem.scss';
 import { BASE_URL } from '../../../utils/fetchClient';
 
 export const CardItem = () => {
