@@ -4,17 +4,44 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getNumbers } from './helpers/getNumbers';
 import { Pagination } from './Pagination/Pagination';
-import { Header } from '../../Components/Header';
-
 import { CatalogList } from './CatalogList';
 import { Product } from '../../types/Product';
 import { Footer } from '../../Components/Footer';
+import { Header } from '../../Components/Header';
+import { SortBy } from './types/SortBy';
 
 type Props = {
   phoneProducts: Product[];
   isLoading: boolean;
   handleAdd: (phone: Product) => void
 };
+
+function sortCatalog(
+  phones: Product[],
+  sortBy: SortBy,
+): Product[] {
+  const templatePhones = [...phones]
+
+  switch (sortBy) {
+    case SortBy.Newest:
+      return templatePhones.sort((phone1, phone2) => (
+        phone2.year - phone1.year
+      ))
+
+    case SortBy.Oldest:
+      return templatePhones.sort((phone1, phone2) => (
+        phone1.year - phone2.year
+      ))
+
+    case SortBy.ByPrice:
+      return templatePhones.sort((phone1, phone2) => (
+        phone2.price - phone1.price
+      ))
+
+    default:
+      return templatePhones;
+  }
+}
 
 export const Catalog: React.FC<Props> = ({
   phoneProducts,
@@ -24,7 +51,8 @@ export const Catalog: React.FC<Props> = ({
   const items = getNumbers(1, phoneProducts.length);
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
-  const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 5));
+  const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 10));
+  const [sortType, setSortType] = useState<SortBy>(SortBy.Newest);
 
 
   useEffect(() => {
@@ -45,84 +73,100 @@ export const Catalog: React.FC<Props> = ({
     setPage(newPage);
   };
 
+  const sortedCatalog = sortCatalog(
+    phoneProducts,
+    sortType,
+  );
+
+  const selectSortType = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
+    if (event.target.value === 'Newest') {
+      setSortType(SortBy.Newest);
+    } else if (event.target.value === 'Oldest') {
+      setSortType(SortBy.Oldest);
+    } else {
+      setSortType(SortBy.ByPrice);
+    }
+  };
+
   return (
     <>
-    <Header />
+      <Header
+      />
 
-    <section className="catalog">
-    <div className="navigation">
-      <img src="./img/Home.svg" alt="" className="navigation__previous" />
+      <section className="catalog">
+        <div className="navigation">
+          <a href="/" className='navigation__link-homePage'>
+          </a>
 
-      <span className="navigation__nesting">&gt;</span>
+          <div className="navigation__nesting">&gt;</div>
 
-      <span className="navigation__current">Phones</span>
-    </div>
+          <p className="navigation__current">Phones</p>
+        </div>
 
-    <h1 className="catalog__title">
-      Mobile phones
-    </h1>
+        <h1 className="catalog__title">
+          Mobile phones
+        </h1>
 
-    <p className="catalog__amount">
-      {countModels} models
-    </p>
-
-    <div className="catalog__sorter">
-      <div className="catalog__sort-by">
-        <p className="sort-by">
-          Sort by
+        <p className="catalog__amount">
+          {countModels} models
         </p>
 
-        <select
-          name=""
-          id=""
-          className="sort-by__list"
-        >
-          <option value="newest" selected>Newest</option>
-          <option value="oldest">Oldest</option>
-          <option value="byPrice">By price</option>
-        </select>
-      </div>
+        <div className="catalog__sorter">
+          <div className="catalog__sort-by">
+            <p className="sort-by">
+              Sort by
+            </p>
 
-      <div className="catalog__items-on-page">
-        <p className="sort-by">
-          Items on page
-        </p>
+            <select
+              value={sortType}
+              className="sort-by__list"
+              onChange={(event) => selectSortType(event)}
+            >
+              <option value="Newest">Newest</option>
+              <option value="Oldest">Oldest</option>
+              <option value="ByPrice">By price</option>
+            </select>
+          </div>
 
-        <select
-          name=""
-          id=""
-          className="sort-by__list"
-          value={perPage}
-          onChange={event => {
-            setPerPage(+event.target.value);
-            setPage(1);
-          }}
-        >
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="20">20</option>
-        </select>
-      </div>
-    </div>
+          <div className="catalog__items-on-page">
+            <p className="sort-by">
+              Items on page
+            </p>
 
-    <CatalogList 
-      phones={phoneProducts} 
-      from={from} 
-      to={to}
-      handleAdd={handleAdd}
-      isLoading={isLoading}
-    />
+            <select
+              className="sort-by__list"
+              value={perPage}
+              onChange={event => {
+                setPerPage(+event.target.value);
+                setPage(1);
+              }}
+            >
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+        </div>
 
-    <Pagination
-    total={items.length}
-    perPage={perPage}
-    currentPage={page}
-    onPageChange={handlePageChange}
-  />
-    </section>
+        <CatalogList
+          phones={phoneProducts}
+          from={from}
+          to={to}
+          handleAdd={handleAdd}
+          isLoading={isLoading}
+          sortedCatalog={sortedCatalog}
+        />
 
-    <Footer />
+        <Pagination
+          total={items.length}
+          perPage={perPage}
+          currentPage={page}
+          onPageChange={handlePageChange}
+        />
+      </section>
+
+      <Footer />
     </>
   );
 };

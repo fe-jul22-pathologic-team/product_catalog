@@ -32,31 +32,31 @@ export function App() {
   }, []);
 
   const handleAdd = useCallback((phone: Product) => {
-      if (!cartState.includes(phone)) {
-        cartState.push(phone);
+    if (!cartState.includes(phone)) {
+      cartState.push(phone);
 
-        setCartState(cartState);
-      };
+      setCartState(cartState);
+    };
   }, [cartState]);
 
   return (
     <>
       <Routes>
-        <Route 
-          path="/" 
+        <Route
+          path="/"
           element={<HomePage />}
         />
         <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route 
-          path="/phones" 
-          element={<Catalog 
-              phoneProducts={products}
-              isLoading={isLoading}
-              handleAdd={handleAdd}
-            />}
+        <Route
+          path="/phones"
+          element={<Catalog
+            phoneProducts={products}
+            isLoading={isLoading}
+            handleAdd={handleAdd}
+          />}
         />
-        <Route 
-          path="/tablets" 
+        <Route
+          path="/tablets"
           element={
           <>
             <Header />
@@ -65,8 +65,8 @@ export function App() {
           </>
         }
         />
-        <Route 
-          path="/accessories" 
+        <Route
+          path="/accessories"
           element={
           <>
             <Header />
@@ -77,9 +77,9 @@ export function App() {
 
         <Route
           path='/test'
-          element={<h1>Test</h1>} 
+          element={<h1>Test</h1>}
         />
-        <Route 
+        <Route
           path='/cart'
           element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
@@ -97,11 +97,11 @@ export function App() {
         <Route 
           path="*" 
           element={
-          <>
-            <Header />
-            <p>Page not found</p>
-            <Footer />
-          </>}
+            <>
+              <Header />
+              <p>Page not found</p>
+              <Footer />
+            </>}
         />
       </Routes>
     </>

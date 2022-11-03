@@ -1,19 +1,18 @@
-.scroll_button__text{
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+@import '../../../../styles/styles.scss';
 
-  text-align: center;
+.scroll_button {
+  &__text{
+    @extend %small_text;
+    text-align: center;
+    color: $clolor-secondary;
+  }
 
-  color: #89939a;
-}
-
-.scroll_button__button{
-  height: 32px;
-  width: 32px;
-
-  box-sizing: border-box;
-  border: 1px solid #b4bdc4;
-
-  background-color: #fff;
+  &__button{
+    height: 32px;
+    width: 32px;
+  
+    box-sizing: border-box;
+    border: 1px solid $clolor-icons;
+    background-color: $clolor-white;
+  }
 }
