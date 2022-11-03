@@ -3,11 +3,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
 import './App.scss';
-import { Cart } from './Components/Cart';
-import { Catalog } from './Components/Catalog';
-import { Footer } from './Components/HomePage/Footer';
-import { Header } from './Components/HomePage/Header';
-import { HomePage } from './Components/HomePage/HomePage';
+import { Cart } from './Pages/Cart';
+import { Catalog } from './Pages/Catalog';
+import { Footer } from './Pages/HomePage/Footer';
+import { Header } from './Components/Header';
+import { HomePage } from './Pages/HomePage/HomePage';
 import { Product } from './types/Product';
 
 

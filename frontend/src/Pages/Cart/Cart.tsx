@@ -1,5 +1,5 @@
 import './Cart.scss';
-import { Header } from "../HomePage/Header";
+import { Header } from "../../Components/Header";
 import { Footer } from "../HomePage/Footer";
 
 import { Product } from "../../types/Product";
