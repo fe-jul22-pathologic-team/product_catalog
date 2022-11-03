@@ -15,9 +15,27 @@
   height: 32px;
 
   border: 1px solid #E2E6E9;
+
+  transition: all 500ms;
+
+  &:hover {
+    border: 1px solid #313237;
+    background-color: #fff;
+  }
+
+  &:active {
+    background-color: #313237;
+  }
 }
 
 .page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
   font-family: 'Mont';
   font-style: normal;
   font-weight: 600;
@@ -26,4 +44,8 @@
   text-decoration: none;
 
   color: #313237;
+
+  &:active {
+    color: #fff;
+  }
 }

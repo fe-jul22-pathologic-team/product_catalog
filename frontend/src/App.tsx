@@ -3,12 +3,13 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
 import './App.scss';
-import { Cart } from './Components/Cart';
-import { Catalog } from './Components/Catalog';
-import { Footer } from './Components/HomePage/Footer';
-import { Header } from './Components/HomePage/Header';
-import { HomePage } from './Components/HomePage/HomePage';
+import { Cart } from './Pages/Cart';
+import { Catalog } from './Pages/Catalog';
+
+import { Header } from './Components/Header';
+import { HomePage } from './Pages/HomePage/HomePage';
 import { Product } from './types/Product';
+import { Footer } from './Components/Footer';
 
 
 export function App() {
@@ -28,65 +29,66 @@ export function App() {
   }, []);
 
   const handleAdd = useCallback((phone: Product) => {
-      if (!cartState.includes(phone)) {
-        cartState.push(phone);
+    if (!cartState.includes(phone)) {
+      cartState.push(phone);
 
-        setCartState(cartState);
-      };
+      setCartState(cartState);
+    };
   }, [cartState]);
 
   return (
     <>
       <Routes>
-        <Route 
-          path="/" 
+        <Route
+          path="/"
           element={<HomePage />}
         />
         <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route 
-          path="/phones" 
-          element={<Catalog 
-              phoneProducts={products}
-              isLoading={isLoading}
-              handleAdd={handleAdd}
-            />}
+        <Route
+          path="/phones"
+          element={<Catalog
+            phoneProducts={products}
+            isLoading={isLoading}
+            handleAdd={handleAdd}
+          />}
         />
-        <Route 
-          path="/tablets" 
+        <Route
+          path="/tablets"
           element={
-          <>
-            <Header />
-            <h1>Tablets page</h1>
-            <Footer />
-          </>
-        }
+            <>
+              <Header />
+              <h1>Tablets page</h1>
+              <Footer />
+            </>
+          }
         />
-        <Route 
-          path="/accessories" 
+        <Route
+          path="/accessories"
           element={
-          <>
-            <Header />
-            <h1>Accessories page</h1>
-            <Footer />
-          </>}
+            <>
+              <Header />
+              <h1>Accessories page</h1>
+              <Footer />
+            </>}
         />
 
         <Route
           path='/test'
-          element={<h1>Test</h1>} 
+          element={<h1>Test</h1>}
         />
-        <Route 
+        <Route
           path='/cart'
           element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
         />
-        <Route 
-          path="*" 
+
+        <Route
+          path="*"
           element={
-          <>
-            <Header />
-            <p>Page not found</p>
-            <Footer />
-          </>}
+            <>
+              <Header />
+              <p>Page not found</p>
+              <Footer />
+            </>}
         />
       </Routes>
     </>
