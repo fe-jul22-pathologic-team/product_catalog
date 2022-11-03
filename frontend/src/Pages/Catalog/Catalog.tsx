@@ -4,10 +4,11 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getNumbers } from './helpers/getNumbers';
 import { Pagination } from './Pagination/Pagination';
-import { Header } from '../HomePage/Header';
-import { Footer } from '../HomePage/Footer';
+import { Header } from '../../Components/Header';
+
 import { CatalogList } from './CatalogList';
 import { Product } from '../../types/Product';
+import { Footer } from '../../Components/Footer';
 
 type Props = {
   phoneProducts: Product[];
