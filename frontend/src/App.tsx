@@ -17,6 +17,9 @@ import { Footer } from './Components/Footer';
 import Tablets from './Components/Tablets/Tablets';
 import Accessories from './Components/Accessories/Accessories';
 import Favorites from './Components/Favorites/Favorites';
+import React from 'react';
+
+export const CartContext = React.createContext(0);
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -36,66 +39,69 @@ export function App() {
 
   const handleAdd = useCallback((phone: Product) => {
     if (!cartState.includes(phone)) {
-      cartState.push(phone);
+      // cartState.push(phone);
 
-      setCartState(cartState);
+      setCartState(prevState => ([
+        ...prevState,
+        phone,
+      ]));
     };
   }, [cartState]);
 
   return (
-    <>
-      <Header />
+      <CartContext.Provider value={cartState.length}>
+        <Header />
 
-      <Routes>
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
-        <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route
-          path="/phones"
-          element={<Catalog
-            phoneProducts={products}
-            isLoading={isLoading}
-            handleAdd={handleAdd}
-          />}
-        />
-        <Route
-          path="/tablets"
-          element={
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route
+            path="/phones"
+            element={<Catalog
+              phoneProducts={products}
+              isLoading={isLoading}
+              handleAdd={handleAdd}
+            />}
+          />
+          <Route
+            path="/tablets"
+            element={
               <Tablets />
-          }
-        />
-        <Route
-          path="/accessories"
-          element={
+            }
+          />
+          <Route
+            path="/accessories"
+            element={
               <Accessories />
             }
-        />
+          />
 
-        <Route
-          path='/test'
-          element={<h1>Test</h1>}
-        />
-        <Route
-          path='/cart'
-          element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
-        />
-        <Route
-          path='/favorites'
-          element={
+          <Route
+            path='/test'
+            element={<h1>Test</h1>}
+          />
+          <Route
+            path='/cart'
+            element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
+          />
+          <Route
+            path='/favorites'
+            element={
               <Favorites />
-          }
-        />
+            }
+          />
 
-        <Route
-          path="*"
-          element={
+          <Route
+            path="*"
+            element={
               <p>Page not found</p>}
-        />
-      </Routes>
+          />
+        </Routes>
 
-      <Footer />
-    </>
+        <Footer />
+      </CartContext.Provider>
   );
 }
