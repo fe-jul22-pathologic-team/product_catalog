@@ -1,4 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
@@ -13,7 +17,6 @@ import { Footer } from './Components/Footer';
 import Tablets from './Components/Tablets/Tablets';
 import Accessories from './Components/Accessories/Accessories';
 import Favorites from './Components/Favorites/Favorites';
-
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -40,6 +43,9 @@ export function App() {
   }, [cartState]);
 
   return (
+    <>
+      <Header />
+
       <Routes>
         <Route
           path="/"
@@ -57,21 +63,14 @@ export function App() {
         <Route
           path="/tablets"
           element={
-          <>
-            <Header />
               <Tablets />
-            <Footer />
-          </>
-        }
+          }
         />
         <Route
           path="/accessories"
           element={
-          <>
-            <Header />
-              <Accessories/>
-            <Footer />
-          </>}
+              <Accessories />
+            }
         />
 
         <Route
@@ -85,23 +84,18 @@ export function App() {
         <Route
           path='/favorites'
           element={
-            <>
-              <Header />
-                <Favorites />
-              <Footer/>
-            </>
-          } 
-        /> 
+              <Favorites />
+          }
+        />
 
-        <Route 
-          path="*" 
+        <Route
+          path="*"
           element={
-            <>
-              <Header />
-              <p>Page not found</p>
-              <Footer />
-            </>}
+              <p>Page not found</p>}
         />
       </Routes>
+
+      <Footer />
+    </>
   );
 }
