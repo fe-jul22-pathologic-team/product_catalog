@@ -1,3 +1,5 @@
+@import '../../../styles/styles.scss';
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -14,17 +16,17 @@
   width: 32px;
   height: 32px;
 
-  border: 1px solid #E2E6E9;
+  border: 1px solid $clolor-elements;
 
   transition: all 500ms;
 
   &:hover {
-    border: 1px solid #313237;
-    background-color: #fff;
+    border: 1px solid $clolor-primary;
+    background-color: $clolor-white;
   }
 
   &:active {
-    background-color: #313237;
+    background-color: $clolor-primary;
   }
 }
 
@@ -36,16 +38,13 @@
   width: 32px;
   height: 32px;
 
-  font-family: 'Mont';
-  font-style: normal;
+  @extend %text_body;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
   text-decoration: none;
 
-  color: #313237;
+  color: $clolor-primary;
 
   &:active {
-    color: #fff;
+    color: $clolor-white;
   }
 }
