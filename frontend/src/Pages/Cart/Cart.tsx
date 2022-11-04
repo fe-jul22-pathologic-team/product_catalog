@@ -1,9 +1,6 @@
 import './Cart.scss';
-import { Header } from "../../Components/Header";
-
 import { Product } from "../../types/Product";
 import { MainCart } from './MainCart';
-import { Footer } from '../../Components/Footer';
 
 type Props = {
   cartProducts: Product[];
@@ -28,16 +25,10 @@ export const Cart: React.FC<Props> = ({ cartProducts, setCartProducts }) => {
   const visibleProducts = removeDuplicate();
 
   return (
-    <>
-      <Header />
-
       <MainCart
         visibleProducts={visibleProducts}
         cartProducts={cartProducts}
         setCartProducts={setCartProducts}
       />
-
-      <Footer />
-    </>
   );
 };
