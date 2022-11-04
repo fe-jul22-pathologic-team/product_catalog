@@ -1,0 +1,23 @@
+@import '../../styles/styles.scss';
+@import './banner';
+
+.homePage {
+  max-width: 1136px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  &__title {
+    @extend %text_h1_mobile;
+    color: $color-primary;
+
+    margin-bottom: 24px;
+  }
+
+  &__banner {
+    margin-bottom: 64px;
+  }
+
+  &__newModels {
+    margin-bottom: 56px;
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../../styles/styles.scss';
+
+.newModels {
+  &__title {
+    @extend %text_h2_mobile;
+    color: $color-primary;
+
+    width: 50%;
+    margin-bottom: 24px;
+  }
+
+  &__swiper {
+    // delete after swiper implementing:
+    height: 439px;
+    width: 212px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @extend %text_h4_mobile;
+    border: 1px solid $color-primary;
+    // ==================================
+  }
+}

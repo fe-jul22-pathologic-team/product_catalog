@@ -1,0 +1,13 @@
+@import '../../../styles/styles.scss';
+
+.categories {
+
+  &__title {
+    @extend %text_h2_mobile;
+  }
+
+  &__mobile_phones {
+
+    background-color: #6d6474;
+  }
+}

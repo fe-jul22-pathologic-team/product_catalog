@@ -10,7 +10,7 @@
 
   &__title {
     @extend %text_h2;  
-    color: $clolor-primary;  
+    color: $color-primary;  
 
     @include onDesktop {
       font-size: 48px;
@@ -20,7 +20,7 @@
   
   &__amount {
     @extend %text_body;  
-    color: $clolor-secondary;
+    color: $color-secondary;
   }
   
   &__sorter {
@@ -79,23 +79,23 @@
   }
   
   &__nesting {
-    color: $clolor-icons;
+    color: $color-icons;
   }
   
   &__current {
     @extend %text_small;  
-    color: $clolor-secondary;
+    color: $color-secondary;
   }
 }
 
 .sort-by {
   @extend %text_small;
-  color: $clolor-secondary;
+  color: $color-secondary;
 
   &__list {
     width: 187px;
     height: 40px;
   
-    border: 1px solid $clolor-icons;
+    border: 1px solid $color-icons;
   }
 }

@@ -11,7 +11,7 @@ import { Cart } from './Pages/Cart';
 import { Catalog } from './Pages/Catalog';
 
 import { Header } from './Components/Header';
-import { HomePage } from './Pages/HomePage/HomePage';
+import { HomePage } from './Pages/HomePage';
 import { Product } from './types/Product';
 import { Footer } from './Components/Footer';
 import Tablets from './Components/Tablets/Tablets';

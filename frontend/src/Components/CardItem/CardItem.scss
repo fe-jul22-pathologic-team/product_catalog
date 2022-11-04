@@ -7,10 +7,10 @@
   display: flex;
   flex-direction: column;
 
-  border: 1px solid $clolor-elements;
+  border: 1px solid $color-elements;
   border-radius: 5px;
   box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
-  background-color: $clolor-white;
+  background-color: $color-white;
 
   &__image {
     height: 196px;
@@ -44,7 +44,7 @@
 .price {
   &__current {
     @extend %text_h3;  
-    color: $clolor-primary;
+    color: $color-primary;
   }
 
   &__full {
@@ -52,7 +52,7 @@
   
     @extend %text_h3;
     text-decoration-line: line-through;
-    color: $clolor-secondary;
+    color: $color-secondary;
   }
 }
 
@@ -68,13 +68,13 @@
 
   &__title {
     @extend %text_small;  
-    color: $clolor-secondary;
+    color: $color-secondary;
   }
 
   &__value {
     @extend %text_small;
     font-weight: 700;  
-    color: $clolor-primary;
+    color: $color-primary;
   }
 }
 
@@ -92,12 +92,12 @@
     height: 100%;
     flex-grow: 1;
   
-    background-color: $clolor-primary;
+    background-color: $color-primary;
     border-style: none;
   
     @extend %text_body;
     text-align: center;
-    color: $clolor-white;
+    color: $color-white;
     transition: all 300ms;
 
     &:hover {
@@ -105,14 +105,14 @@
     }
 
     &:active {
-      background-color: $clolor-white;
-      color: $clolor-green;
+      background-color: $color-white;
+      color: $color-green;
       border: 0;
     }
 
     &--active {
-      background-color: $clolor-white;
-      color: $clolor-green;
+      background-color: $color-white;
+      color: $color-green;
       border: 0;
     }
   }
@@ -125,12 +125,12 @@
     background-repeat: no-repeat;
     background-position: center;
   
-    border: 1px solid $clolor-icons;
+    border: 1px solid $color-icons;
 
     transition: border 500ms;
 
     &:hover {
-      border: 1px solid $clolor-primary;
+      border: 1px solid $color-primary;
     }
   }
 }

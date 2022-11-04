@@ -13,13 +13,13 @@
     &__logo {
         margin-top: 16px;
         @extend %text_h1;
-        color: $clolor-primary;
+        color: $color-primary;
     }
 
     &__bill {
         width: 368px;
         height: 206px;
-        border: solid $clolor-secondary 0.5px;
+        border: solid $color-secondary 0.5px;
         padding: 24px;
         display: flex;
         flex-direction: column;
@@ -64,21 +64,21 @@
         font-weight: 700;
         font-size: 14px;
         text-align: center;
-        color: $clolor-white;
-        background: $clolor-primary;
+        color: $color-white;
+        background: $color-primary;
     }
 }
 
 .totalPrice {
     @extend %text_h2;
-    color: $clolor-primary;
+    color: $color-primary;
 }
 
 .totalItems {
     margin-bottom: 32px;
 
     @extend %text_body;
-    color: $clolor-secondary;
+    color: $color-secondary;
 }
 
 

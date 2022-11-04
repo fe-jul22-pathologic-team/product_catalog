@@ -4,7 +4,7 @@
   &__text{
     @extend %text_small;
     text-align: center;
-    color: $clolor-secondary;
+    color: $color-secondary;
   }
 
   &__button{
@@ -12,7 +12,7 @@
     width: 32px;
   
     box-sizing: border-box;
-    border: 1px solid $clolor-icons;
-    background-color: $clolor-white;
+    border: 1px solid $color-icons;
+    background-color: $color-white;
   }
 }

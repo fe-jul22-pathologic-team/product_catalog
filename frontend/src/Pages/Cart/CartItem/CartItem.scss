@@ -10,7 +10,7 @@
 
   margin-bottom: 16px;
 
-  border: 1px solid $clolor-elements;
+  border: 1px solid $color-elements;
 
   @include onTablet {    
     width: 590px;
@@ -60,9 +60,9 @@
     text-decoration: none;
 
     border: 0;
-    background-color: $clolor-white;
+    background-color: $color-white;
 
-    color: $clolor-secondary;
+    color: $color-secondary;
 
     @include onDesktop {
       margin-left: 30px;
@@ -72,7 +72,7 @@
   &__title {
     @extend %text_body;
     font-weight: 600;
-    color: $clolor-primary;
+    color: $color-primary;
 
     width: 150px;
 
@@ -92,14 +92,14 @@
     height: 32px;
 
     background-color: transparent;
-    border: 1px solid $clolor-elements;
+    border: 1px solid $color-elements;
 
-    color: $clolor-icons;
+    color: $color-icons;
   }
 
   &__price {
     @extend %text_h3;
-    color: $clolor-primary;
+    color: $color-primary;
 
     @include onDesktop {
       font-weight: 800;

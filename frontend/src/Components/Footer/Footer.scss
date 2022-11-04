@@ -10,8 +10,8 @@
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0px -1px 0px $clolor-elements;
-  background-color: $clolor-white;
+  box-shadow: 0px -1px 0px $color-elements;
+  background-color: $color-white;
 
   @include onTablet {
     height: 96px;
