@@ -1,5 +1,5 @@
 import './Catalog.scss';
-import './CardItem.scss';
+import '../../Components/CardItem/CardItem.scss';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getNumbers } from './helpers/getNumbers';
@@ -144,7 +144,6 @@ export const Catalog: React.FC<Props> = ({
         </div>
 
         <CatalogList
-          phones={phoneProducts}
           from={from}
           to={to}
           handleAdd={handleAdd}
