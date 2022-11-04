@@ -8,7 +8,7 @@
 
   margin-bottom: 16px;
 
-  border: 1px solid #E2E6E9;
+  border: 1px solid $clolor-elements;
 
   &__info {
     display: flex;
@@ -38,19 +38,15 @@
     text-decoration: none;
 
     border: 0;
-    background-color: #fff;
+    background-color: $clolor-white;
 
-    color: #89939A;
+    color: $clolor-secondary;
   }
 
   &__title {
-    font-family: 'Mont';
-    font-style: normal;
+    @extend %text_body;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-
-    color: #313237;
+    color: $clolor-primary;
 
     width: 150px;
   }
@@ -66,52 +62,47 @@
     height: 32px;
 
     background-color: transparent;
-    border: 1px solid #E2E6E9;
+    border: 1px solid $clolor-elements;
 
-    color: #B4BDC4;
+    color: $clolor-icons;
   }
 
   &__price {
-    font-family: 'Mont';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 140%;
-
-    color: #313237;
+    @extend %text_h3;
+    color: $clolor-primary;
   }
 
-  @media (min-width: 640px) {
+  @include onTablet {
     & {
       width: 590px;
       height: 128px;
     }
   }
 
-  @media (min-width: 1200px) {
+  @include onDesktop {
     &__exit {
       margin-left: 30px;
     }
-
+  
     &__price {
       font-weight: 800;
     }
-
+  
     &__title {
       width: 330px;
     }
-
+  
     &__buy {
       gap: 45px;
     }
-
+  
     &__info {
       gap: 32px;
     }
-
+  
     & {
       flex-direction: row;
-
+  
       width: 750px;
       height: 128px;
     }

@@ -1,3 +1,5 @@
+@import '../../styles/styles.scss';
+
 .phone {
   max-width: 272px;
   padding: 32px;
@@ -42,25 +44,19 @@
   }
 }
 
-.price__current {
-  font-family: "Mont", sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 140%;
+.price {
+  &__current {
+    @extend %text_h3;  
+    color: $clolor-primary;
+  }
 
-  color: #313237;
-}
-
-.price__full {
-  margin-left: 8px;
-
-  font-family: "Mont", sans-serif;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 140%;
-
-  text-decoration-line: line-through;
-  color: #89939A;
+  &__full {
+    margin-left: 8px;
+  
+    @extend %text_h3;
+    text-decoration-line: line-through;
+    color: $clolor-secondary;
+  }
 }
 
 .characteristic {
@@ -68,28 +64,21 @@
   justify-content: space-between;
 
   margin-bottom: 8px;
-}
 
-.characteristic--last {
-  margin-bottom: 16px;
-}
+  &--last {
+    margin-bottom: 16px;
+  }
 
-.characteristic__title {
-  font-family: "Mont", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+  &__title {
+    @extend %text_small;  
+    color: $clolor-secondary;
+  }
 
-  color: #89939A;
-}
-
-.characteristic__value {
-  font-family: "Mont", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-
-  color: #313237;
+  &__value {
+    @extend %text_small;
+    font-weight: 700;  
+    color: $clolor-primary;
+  }
 }
 
 .buttons {
