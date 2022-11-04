@@ -4,6 +4,7 @@ import { Logo } from './Logo';
 import { Shop } from './Shop';
 import './Header.scss';
 import { Link } from 'react-router-dom';
+import { CartBall } from './CartBall';
 
 export const Header: React.FC = () => {
   return (
@@ -51,8 +52,10 @@ export const Header: React.FC = () => {
               <Favorites />
             </Link>
           </li>
+
           <li className='icons__item icons__item--shop'>
             <Link to="/cart" className="icons__link">
+              <CartBall />
               <Shop />
             </Link>
           </li>

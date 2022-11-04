@@ -40,7 +40,6 @@ export function App() {
   }, [cartState]);
 
   return (
-    <>
       <Routes>
         <Route
           path="/"
@@ -104,6 +103,5 @@ export function App() {
             </>}
         />
       </Routes>
-    </>
   );
 }

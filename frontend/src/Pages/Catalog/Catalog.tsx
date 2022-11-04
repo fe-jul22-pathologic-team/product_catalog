@@ -92,8 +92,7 @@ export const Catalog: React.FC<Props> = ({
 
   return (
     <>
-      <Header
-      />
+      <Header />
 
       <section className="catalog">
         <div className="navigation">
