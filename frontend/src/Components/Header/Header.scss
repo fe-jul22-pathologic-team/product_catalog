@@ -123,10 +123,12 @@
 
       @include onTablet {
         display: block;
+        position: relative;
       }
 
       @include onDesktop {
         display: block;
+        position: relative;
       }
     }
 
