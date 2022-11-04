@@ -2,15 +2,15 @@
 [Demo link](https://fe-jul22-pathologic-team.github.io/product_catalog/)
 [Figma maket](https://www.figma.com/file/T5ttF21UnT6RRmCQQaZc6L/Phone-catalog-(V2)-Original)
 
-#Get the initial code
+# Get the initial code
 Clone the repo
 Run cd ./frontend
 Run npm install to install the dependencies
 Run cd ./backend
 Run npm install to install the dependencies
-#To run your server in dev mode
+# To run your server in dev mode
 Run npm run dev
-#How to develop a feature
+# How to develop a feature
 Pull the latest main.
 Create a your-feature-name branch and push it to Github.
 Open a Pull Request (PR) from your branch to the main.
