@@ -5,7 +5,9 @@ import { Shop } from './Shop';
 import './Header.scss';
 import { Link } from 'react-router-dom';
 
+
 export const Header: React.FC = () => {
+
   return (
     <header className="header">
       <div className="header__logo logo">
@@ -42,9 +44,9 @@ export const Header: React.FC = () => {
       <div className="icons header__icons">
         <ul className="icons__list">
           <li className='icons__item icons__item--menu'>
-            <Link to="/menu" className="icons__link">
+            <div className="icons__link" >
               <Menu />
-            </Link>
+            </div>
           </li>
           <li className='icons__item icons__item--favorites'>
             <Link to="/favourites" className="icons__link">
