@@ -24,7 +24,7 @@ const Burger: FC<Props> = ({
     ];
 
     return (
-        <div className={classNames('burger', { 'burger-hidden': active })}>
+        <div className={classNames('burger', { 'burger-hidden': !active })}>
             <div className='burger__header'>
                 <div className='burger__logo'>
                     <Logo/>
@@ -36,7 +36,7 @@ const Burger: FC<Props> = ({
             <div className='burger__main'>
                 <ul className='burger__list'>
                     {menuList.map(item => 
-                        <li key={item.id} >
+                        <li key={item.id} onClick={toggleBurgerMenu}>
                             <Link to={item.link} className='burger__item'>
                                 {item.title.toUpperCase()}
                             </Link>
@@ -45,10 +45,10 @@ const Burger: FC<Props> = ({
                 </ul>
             </div>
             <div className='burger__footer'>
-                    <Link to="/favourites" className='burger__favorites'>
+                    <Link to="/favourites" className='burger__favorites' onClick={toggleBurgerMenu}>
                          <Favorites />
                     </Link>
-                    <Link to="/cart" className='burger__favorites'>
+                    <Link to="/cart" className='burger__favorites' onClick={toggleBurgerMenu}>
                         <Shop />
                     </Link>
             </div>

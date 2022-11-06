@@ -24,8 +24,10 @@ export const CartItem: React.FC<Props> = ({
   const deleteProduct = useCallback(() => {
     const filterProducts = products.filter(item => item !== product);
 
+    setTotal(filterProducts.map(({ price }) => price).reduce((a, b) => a + b, 0));
+
     setCartState(filterProducts);
-  }, [product, products, setCartState]);
+  }, [product, products, setCartState, setTotal]);
 
   const [productCount, setProductCount] = useState(products.filter(item => item === product).length);
 

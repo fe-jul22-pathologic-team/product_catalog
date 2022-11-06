@@ -1,9 +1,41 @@
-.cart__container {
-    display: flex;
-    margin: 43px 152px 0px;
-    flex-direction: column;
+@import '../../styles/styles.scss';
 
-    height: 100vh;
+
+.cart {
+    &__container {
+        display: flex;
+        margin: 43px 152px 0px;
+        flex-direction: column;
+    
+        height: auto;
+    }
+
+    &__logo {
+        margin-top: 16px;
+        @extend %text_h1;
+        color: $clolor-primary;
+    }
+
+    &__bill {
+        width: 368px;
+        height: 206px;
+        border: solid $clolor-secondary 0.5px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__form {
+        display: flex;
+        align-items: baseline;
+    
+        gap: 16px;
+    }
+
+    &__list {
+        list-style-type: none;
+    }
 }
 
 .backLink {
@@ -17,79 +49,49 @@
     margin-right: 10px;
 }
 
-.cart__logo {
-    margin-top: 16px;
-    font-family: 'Mont';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 48px;
-    color: #313237;
-}
-
-.cart__bill {
-    width: 368px;
-    height: 206px;
-    border: solid #89939A 0.5px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .bill {
     display: flex;
     align-items: center;
     flex-direction: column;
 
     gap: 16px;
+
+    &__button {
+        height: 48px;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-weight: 700;
+        font-size: 14px;
+        text-align: center;
+        color: $clolor-white;
+        background: $clolor-primary;
+    }
 }
 
 .totalPrice {
-    font-family: 'Mont';
-    font-weight: 800;
-    font-size: 32px;
-    color: #313237;
+    @extend %text_h2;
+    color: $clolor-primary;
 }
 
 .totalItems {
     margin-bottom: 32px;
-    font-family: 'Mont';
-    font-weight: 600;
-    font-size: 14px;
-    color: #89939A;
+
+    @extend %text_body;
+    color: $clolor-secondary;
 }
 
-.bill__button {
-    height: 48px;
-    width: 100%;
-    border: none; 
-    outline: none;
-    font-weight: 700;
-    font-size: 14px;
-    text-align: center;
-    color: #FFFFFF;
-    background: #313237;
-}
 
-.cart__form {
-    display: flex;
-    align-items: baseline;
-
-    gap: 16px;
-}
-
-.cart__list{
-    list-style-type: none;
-}
-
-@media (min-width: 320px) and (max-width: 1199px){
+@media (min-width: 320px) and (max-width: 1199px) {
     .cart__form {
         display: flex;
         flex-direction: column;
     }
+
     .cart__bill {
         width: 100%;
     }
+
     .cart__container {
         display: flex;
         margin: 43px 24px 0px;

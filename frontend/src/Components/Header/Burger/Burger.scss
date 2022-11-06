@@ -1,11 +1,20 @@
-
+@import '../../../styles/styles.scss';
 
 .burger {
     height: 100vh;
+    padding-top: 1px;
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: ease 0.5s;
+    background-color: white;
     &__header{
         display: flex;
+        box-sizing: border-box;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -14,8 +23,10 @@
         border-bottom: 1px solid #E2E6E9;
     };
     &__button{
+        margin-right: 1px;
+        box-sizing: border-box;
         display: flex;
-        height: 100%;
+        height: 48px;
         width: 48px;
         justify-content: center;
         align-items: center;
@@ -87,7 +98,19 @@
         }
     }
 };
+@include onDesktop {
+    .burger{
+        height: 0;
+        transform: translateX(-100%)
+    };
+};
 
+@include onTablet {
+    .burger{
+        height: 0;
+        transform: translateX(-100%)
+    };
+}
 .burger.burger-hidden{
     height: 0;
     transform: translateX(-100%)

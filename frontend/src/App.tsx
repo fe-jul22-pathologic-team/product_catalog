@@ -1,4 +1,8 @@
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { getProducts } from './api/products';
 
@@ -14,7 +18,9 @@ import Tablets from './Components/Tablets/Tablets';
 import Accessories from './Components/Accessories/Accessories';
 import Favorites from './Components/Favorites/Favorites';
 import Burger from './Components/Header/Burger/Burger';
+import React from 'react';
 
+export const CartContext = React.createContext(0);
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -35,81 +41,79 @@ export function App() {
 
   const handleAdd = useCallback((phone: Product) => {
     if (!cartState.includes(phone)) {
-      cartState.push(phone);
+      // cartState.push(phone);
 
-      setCartState(cartState);
+      setCartState(prevState => ([
+        ...prevState,
+        phone,
+      ]));
     };
   }, [cartState]);
 
   const toggleBurgerMenu = () => {
     setActive(!active);
-  }
+    if(!active) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    };
+  };
 
   return (
-    <>
-      <Burger active={active} toggleBurgerMenu={toggleBurgerMenu} />
-      <Routes>
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
-        <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route
-          path="/phones"
-          element={<Catalog
-            phoneProducts={products}
-            isLoading={isLoading}
-            handleAdd={handleAdd}
-          />}
-        />
-        <Route
-          path="/tablets"
-          element={
-          <>
-            <Header />
-              <Tablets />
-            <Footer />
-          </>
-        }
-        />
-        <Route
-          path="/accessories"
-          element={
-          <>
-            <Header />
-              <Accessories/>
-            <Footer />
-          </>}
-        />
+      <CartContext.Provider value={cartState.length}>
+        <Burger active={active} toggleBurgerMenu={toggleBurgerMenu} />
+        <Header toggleBurgerMenu={toggleBurgerMenu}/>
 
-        <Route
-          path='/test'
-          element={<h1>Test</h1>}
-        />
-        <Route
-          path='/cart'
-          element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
-        />
-        <Route
-          path='/favorites'
-          element={
-            <>
-              <Header />
-                <Favorites />
-              <Footer/>
-            </>
-          } 
-        />
-        <Route 
-          path="*" 
-          element={
-            <>
-              <Header />
-                <p>Page not found</p>
-              <Footer />
-            </>}
-        />
-      </Routes>
-    </>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route
+            path="/phones"
+            element={<Catalog
+              phoneProducts={products}
+              isLoading={isLoading}
+              handleAdd={handleAdd}
+            />}
+          />
+          <Route
+            path="/tablets"
+            element={
+              <Tablets />
+            }
+          />
+          <Route
+            path="/accessories"
+            element={
+              <Accessories />
+            }
+          />
+
+          <Route
+            path='/test'
+            element={<h1>Test</h1>}
+          />
+          <Route
+            path='/cart'
+            element={<Cart cartProducts={cartState} setCartProducts={setCartState} />}
+          />
+          <Route
+            path='/favorites'
+            element={
+              <Favorites />
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <p>Page not found</p>}
+          />
+        </Routes>
+
+        <Footer />
+      </CartContext.Provider>
   );
 }

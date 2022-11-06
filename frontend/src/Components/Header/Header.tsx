@@ -4,9 +4,13 @@ import { Logo } from './Logo';
 import { Shop } from './Shop';
 import './Header.scss';
 import { Link } from 'react-router-dom';
+import { CartBall } from './CartBall';
 
+type Props = {
+  toggleBurgerMenu: () => void;
+};
 
-export const Header: React.FC = () => {
+export const Header: React.FC<Props> = ({ toggleBurgerMenu }) => {
 
   return (
     <header className="header">
@@ -44,7 +48,7 @@ export const Header: React.FC = () => {
       <div className="icons header__icons">
         <ul className="icons__list">
           <li className='icons__item icons__item--menu'>
-            <div className="icons__link" >
+            <div className="icons__link" onClick={toggleBurgerMenu}>
               <Menu />
             </div>
           </li>
@@ -53,8 +57,10 @@ export const Header: React.FC = () => {
               <Favorites />
             </Link>
           </li>
+
           <li className='icons__item icons__item--shop'>
             <Link to="/cart" className="icons__link">
+              <CartBall />
               <Shop />
             </Link>
           </li>

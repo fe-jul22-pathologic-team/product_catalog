@@ -6,6 +6,9 @@
   padding-left: 16px;
   justify-content: space-between;
   box-shadow: 0px 1px 0px $clolor-elements;
+  background-color: $clolor-white;
+
+  margin-bottom: 24px;
 
   &__nav {
     display: flex;
@@ -123,10 +126,12 @@
 
       @include onTablet {
         display: block;
+        position: relative;
       }
 
       @include onDesktop {
         display: block;
+        position: relative;
       }
     }
 
@@ -150,7 +155,6 @@
 
     &:hover {
       box-shadow: -1.5px 0px 0px #e2e6e9be;
-      transform: scale(1.07);
       background-color: #ecf1f4;
     }
 

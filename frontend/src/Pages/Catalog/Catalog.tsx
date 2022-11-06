@@ -1,13 +1,11 @@
 import './Catalog.scss';
-import './CardItem.scss';
+import '../../Components/CardItem/CardItem.scss';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { getNumbers } from './helpers/getNumbers';
 import { Pagination } from './Pagination/Pagination';
 import { CatalogList } from './CatalogList';
 import { Product } from '../../types/Product';
-import { Footer } from '../../Components/Footer';
-import { Header } from '../../Components/Header';
 import { SortBy } from './types/SortBy';
 
 type Props = {
@@ -91,10 +89,6 @@ export const Catalog: React.FC<Props> = ({
   };
 
   return (
-    <>
-      <Header
-      />
-
       <section className="catalog">
         <div className="navigation">
           <a href="/" className='navigation__link-homePage'>
@@ -150,7 +144,6 @@ export const Catalog: React.FC<Props> = ({
         </div>
 
         <CatalogList
-          phones={phoneProducts}
           from={from}
           to={to}
           handleAdd={handleAdd}
@@ -165,8 +158,5 @@ export const Catalog: React.FC<Props> = ({
           onPageChange={handlePageChange}
         />
       </section>
-
-      <Footer />
-    </>
   );
 };

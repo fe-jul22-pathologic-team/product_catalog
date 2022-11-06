@@ -1,36 +1,26 @@
+@import '../../styles/styles.scss';
+
 .catalog {
   display: flex;
   flex-direction: column;
   gap: 24px;
 
+  max-width: 1136px;
+  margin: 0 auto;
+
   &__title {
-    font-family: 'Mont';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 41px;
-    letter-spacing: -0.01em;
-  
-    color: #313237;
-  
-    margin: 0;
-  
-    margin-left: 16px;
+    @extend %text_h2;  
+    color: $clolor-primary;  
+
+    @include onDesktop {
+      font-size: 48px;
+      line-height: 56px;
+    }
   }
   
   &__amount {
-    font-family: 'Mont';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-  
-    color: #89939A;
-  
-    margin: 0;
-    padding: 0;
-  
-    margin-left: 16px;
+    @extend %text_body;  
+    color: $clolor-secondary;
   }
   
   &__sorter {
@@ -38,14 +28,16 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+
+    @include onDesktop {
+      justify-content: flex-start;
+    }
   }
   
   &__sort-by {
     display: flex;
     flex-direction: column;
     gap: 4px;
-  
-    margin-left: 16px;
   }
 
   &__items-on-page {
@@ -60,7 +52,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 16px;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+  
+      margin: 0 auto;
+    }
   }
 }
 
@@ -68,9 +67,6 @@
   display: flex;
   align-items: center;
   gap: 15px;
-
-  margin-top: 24px;
-  margin-left: 16px;
 
   &__link-homePage {
     display: block;
@@ -83,66 +79,23 @@
   }
   
   &__nesting {
-    color: #B4BDC4;
+    color: $clolor-icons;
   }
   
   &__current {
-    font-family: 'Mont';
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-  
-    color: #89939A;
+    @extend %text_small;  
+    color: $clolor-secondary;
   }
 }
 
 .sort-by {
-  font-family: 'Mont';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+  @extend %text_small;
+  color: $clolor-secondary;
 
-  color: #89939A;
-}
-
-.sort-by__list {
-  width: 187px;
-  height: 40px;
-
-  border: 1px solid #B4BDC4;
-}
-
-@media (min-width: 1200px) {
-  .catalog__sorter {
-    justify-content: flex-start;
-  }
-
-  .catalog__list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-
-    margin: 0 auto;
-    margin-left: 152px;
-  }
-
-  .catalog__sort-by {
-    margin-left: 150px;
-  }
-
-  .navigation {
-    margin-left: 150px;
-  }
-
-  .catalog__title {
-    font-size: 48px;
-    line-height: 56px;
-
-    margin-left: 150px;
-  }
-
-  .catalog__amount {
-    margin-left: 150px;
+  &__list {
+    width: 187px;
+    height: 40px;
+  
+    border: 1px solid $clolor-icons;
   }
 }

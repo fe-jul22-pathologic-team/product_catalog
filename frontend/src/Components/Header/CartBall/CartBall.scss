@@ -1,0 +1,31 @@
+@import '../../../styles/styles.scss';
+
+.cart-ball {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+    position: absolute;
+
+    height: 15px;
+    width: 15px;
+
+    left: 30px;
+    top: 15px;
+
+    background-color: $clolor-red;
+
+    border: 1px solid $clolor-white;
+    border-radius: 100%;
+
+    font-family: 'Mont', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 12px;
+
+    text-align: center;
+
+    color: $clolor-white;
+  }
+}

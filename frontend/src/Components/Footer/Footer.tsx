@@ -8,13 +8,15 @@ const logo = require("./logo.png");
 export const Footer = () => {
   return (
     <footer className="footer">
-      <img 
-        src={logo}
-        alt="Logo" 
-        className="footer__logo"
-      />
-      <FooterNavigation />
-      <BackToTop />
+      <div className="footerContainer">
+        <img 
+          src={logo}
+          alt="Logo" 
+          className="footer__logo"
+        />
+        <FooterNavigation />
+        <BackToTop />
+      </div>
     </footer>
   );
 };
