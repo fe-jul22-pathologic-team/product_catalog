@@ -19,7 +19,7 @@ import Accessories from './Components/Accessories/Accessories';
 import Favorites from './Components/Favorites/Favorites';
 import React from 'react';
 
-export const CartContext = React.createContext(0);
+export const CartContext = React.createContext<Product[]>([]);
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -49,7 +49,7 @@ export function App() {
   }, [cartState]);
 
   return (
-      <CartContext.Provider value={cartState.length}>
+      <CartContext.Provider value={cartState}>
         <Header />
 
         <Routes>

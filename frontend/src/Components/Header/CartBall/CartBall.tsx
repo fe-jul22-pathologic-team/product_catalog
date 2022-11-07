@@ -3,7 +3,7 @@ import { CartContext } from '../../../App';
 import './CartBall.scss';
 
 export const CartBall: React.FC = () => {
-  const cartLength = useContext(CartContext);
+  const cartLength = useContext(CartContext).length;
 
   return cartLength > 0
     ? (
