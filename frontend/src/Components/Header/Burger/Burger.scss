@@ -23,14 +23,7 @@
         border-bottom: 1px solid #E2E6E9;
     };
     &__button{
-        margin-right: 1px;
-        box-sizing: border-box;
-        display: flex;
         height: 48px;
-        width: 48px;
-        justify-content: center;
-        align-items: center;
-        border-left: 1px solid #E2E6E9;
     }
     &__main{
         display: flex;
@@ -96,22 +89,22 @@
             color: #313237;
             border-bottom: 3px solid #313237;
         }
+    };
+
+    @include onDesktop {
+        height: 0;
+        transform: translateX(-100%)
+        
+    };
+    
+    @include onTablet {
+        height: 0;
+        transform: translateX(-100%)
+        
     }
 };
-@include onDesktop {
-    .burger{
-        height: 0;
-        transform: translateX(-100%)
-    };
-};
 
-@include onTablet {
-    .burger{
-        height: 0;
-        transform: translateX(-100%)
-    };
-}
-.burger.burger-hidden{
+.burger.burger--hidden{
     height: 0;
     transform: translateX(-100%)
 };

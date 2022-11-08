@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Favorites } from '../Favorites';
 import { Logo } from '../Logo';
-import { Menu } from '../Menu';
 import { Shop } from '../Shop';
 import classNames from 'classnames';
 import './Burger.scss';
+import CloseBurger from './CloseBurger';
 type Props = {
     active: boolean;
     toggleBurgerMenu: () => void;
@@ -24,13 +24,13 @@ const Burger: FC<Props> = ({
     ];
 
     return (
-        <div className={classNames('burger', { 'burger-hidden': !active })}>
+        <div className={classNames('burger', { 'burger--hidden': !active })}>
             <div className='burger__header'>
                 <div className='burger__logo'>
                     <Logo/>
                 </div>
                 <div className='burger__button' onClick={toggleBurgerMenu}>
-                    <Menu/>
+                    <CloseBurger/>
                 </div>
             </div>
             <div className='burger__main'>
