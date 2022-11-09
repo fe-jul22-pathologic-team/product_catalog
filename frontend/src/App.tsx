@@ -17,6 +17,7 @@ import { Footer } from './Components/Footer';
 import Tablets from './Components/Tablets/Tablets';
 import Accessories from './Components/Accessories/Accessories';
 import Favorites from './Components/Favorites/Favorites';
+import Burger from './Components/Header/Burger/Burger';
 import React from 'react';
 
 export const CartContext = React.createContext<Product[]>([]);
@@ -25,6 +26,7 @@ export function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [cartState, setCartState] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [active, setActive] = useState(false);
 
   const loadData = async () => {
     const data = await getProducts();
@@ -48,9 +50,19 @@ export function App() {
     };
   }, [cartState]);
 
+  const toggleBurgerMenu = () => {
+    setActive(!active);
+    if(!active) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    };
+  };
+
   return (
-      <CartContext.Provider value={cartState}>
-        <Header />
+      <CartContext.Provider value={cartState.length}>
+        <Burger active={active} toggleBurgerMenu={toggleBurgerMenu} />
+        <Header toggleBurgerMenu={toggleBurgerMenu}/>
 
         <Routes>
           <Route

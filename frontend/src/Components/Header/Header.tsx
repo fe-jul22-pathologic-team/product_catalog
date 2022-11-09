@@ -6,7 +6,12 @@ import './Header.scss';
 import { Link } from 'react-router-dom';
 import { CartBall } from './CartBall';
 
-export const Header: React.FC = () => {
+type Props = {
+  toggleBurgerMenu: () => void;
+};
+
+export const Header: React.FC<Props> = ({ toggleBurgerMenu }) => {
+
   return (
     <header className="header">
       <div className="header__logo logo">
@@ -43,9 +48,9 @@ export const Header: React.FC = () => {
       <div className="icons header__icons">
         <ul className="icons__list">
           <li className='icons__item icons__item--menu'>
-            <Link to="/menu" className="icons__link">
+            <div className="icons__link" onClick={toggleBurgerMenu}>
               <Menu />
-            </Link>
+            </div>
           </li>
           <li className='icons__item icons__item--favorites'>
             <Link to="/favourites" className="icons__link">
