@@ -1,3 +1,6 @@
+import classNames from "classnames";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 import { Product } from "../../types/Product";
 import { BASE_URL } from '../../utils/fetchClient';
 
@@ -16,6 +19,10 @@ export const CardItem: React.FC<Props> = ({ phone, handleAdd }) => {
     capacity,
     ram,
   } = phone;
+
+  const cartState = useContext(CartContext);
+
+  const isAddedPhone = cartState.includes(phone);
 
   return (
     <div className='phone'>
@@ -49,10 +56,18 @@ export const CardItem: React.FC<Props> = ({ phone, handleAdd }) => {
       </div>
 
       <div className="buttons">
-        <button className="buttons__buy" onClick={() => {
-          handleAdd(phone)}}
+        <button
+          className={classNames(
+            { 'buttons__buy': !isAddedPhone },
+            { 'buttons__buy--active': isAddedPhone }
+          )}
+          onClick={() => {
+            handleAdd(phone)
+          }
+          }
+          disabled={isAddedPhone}
         >
-          Add to cart
+          {isAddedPhone ? 'Added to cart' : 'Add to cart'}
         </button>
         <button className="buttons__favorite">
         </button>

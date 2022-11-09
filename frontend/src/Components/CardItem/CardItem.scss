@@ -107,10 +107,10 @@
     &:active {
       background-color: $clolor-white;
       color: $clolor-green;
-      border: 0;
     }
 
     &--active {
+      min-width: 158px;
       background-color: $clolor-white;
       color: $clolor-green;
       border: 0;

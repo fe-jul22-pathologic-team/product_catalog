@@ -20,7 +20,7 @@ import Favorites from './Components/Favorites/Favorites';
 import Burger from './Components/Header/Burger/Burger';
 import React from 'react';
 
-export const CartContext = React.createContext(0);
+export const CartContext = React.createContext<Product[]>([]);
 
 export function App() {
   const [products, setProducts] = useState<Product[]>([]);
